@@ -2,18 +2,24 @@
 
 > Otimizador avançado, open-source e transparente para **Windows 10 e Windows 11**, desenvolvido para reduzir latência, eliminar processos desnecessários em segundo plano e extrair o máximo de desempenho para jogos e uso diário — sem telemetria oculta e com reversão segura.
 
-[![Versão](https://img.shields.io/badge/Versão-1.0.0-10b981?style=for-the-badge)](https://github.com/VictorSallesBz/AGB/releases)
+[![Versão](https://img.shields.io/badge/Versão-1.0.0-10b981?style=for-the-badge)](https://github.com/VictorSallesBz/AGB/releases/latest)
+[![Baixar Instalador](https://img.shields.io/badge/Download-Instalador_.EXE-2563eb?style=for-the-badge&logo=windows)](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe)
 [![Ajustes](https://img.shields.io/badge/Ajustes-66_Tweaks-6366f1?style=for-the-badge)](#manual-completo-dos-66-ajustes)
 [![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=for-the-badge&logo=windows)](https://github.com/VictorSallesBz/AGB)
 [![Discord](https://img.shields.io/badge/Discord-Comunidade_AGB-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/b3HekDzKGS)
 [![Apoiar](https://img.shields.io/badge/Ko--fi-Apoiar_o_Projeto-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/victorsalles)
+
+> ### ⬇️ Baixar AGB v1.0.0 (Windows 10 e Windows 11)
+> - 🚀 [**Baixar Instalador Fácil (`agb-1.0.0-setup.exe`) — Recomendado**](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe) *(dois cliques, instala e cria atalho na Área de Trabalho)*
+> - 📦 [**Baixar Versão Portátil (`AGB-1.0.0-win.zip`)**](https://github.com/VictorSallesBz/AGB/releases/latest/download/AGB-1.0.0-win.zip) *(sem instalação: extrair a pasta e abrir `agb.exe`)*
+> - 📋 [**Ver todas as versões na página de Releases**](https://github.com/VictorSallesBz/AGB/releases/latest)
 
 ---
 
 ## 📋 Sumário
 
 - [Sobre o AGB e Transparência](#-sobre-o-agb-e-transparência)
-- [Instalação e Como Usar](#-instalação-e-como-usar)
+- [Como Baixar, Instalar e Usar (Passo a Passo)](#-instalação-e-como-usar)
 - [Guia de Todas as Abas do Aplicativo](#-guia-de-todas-as-abas-do-aplicativo)
   - [1. Painel (Home) e Perfis Rápidos](#1-painel-home-e-perfis-rápidos)
   - [2. Ajustes (Tweaks)](#2-ajustes-tweaks)
@@ -38,13 +44,22 @@
 
 ## 🚀 Instalação e Como Usar
 
-### Opção 1 — Instalador / Versão Pronta (Recomendado para Usuários)
-1. Acesse a página de [**Releases no GitHub**](https://github.com/VictorSallesBz/AGB/releases).
-2. Baixe o instalador `AGB-Setup.exe` mais recente.
-3. Execute como **Administrador** (necessário para aplicar chaves em `HKLM`, configurar planos de energia e serviços do Windows).
+### Opção 1 — Instalador Fácil `.exe` (Recomendado para Iniciantes)
+Você **não precisa** instalar Node.js nem mexer com comandos:
+1. Clique aqui para baixar diretamente: [**agb-1.0.0-setup.exe**](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe) (ou acesse [**Releases**](https://github.com/VictorSallesBz/AGB/releases/latest)).
+2. Dê **dois cliques** no arquivo baixado.
+   > **ℹ️ Se o Windows exibir a tela azul do SmartScreen ("O Windows protegeu o computador"):** isso é normal em apps independentes sem assinatura paga de certificado. Clique em **"Mais informações"** e depois em **"Executar assim mesmo"**.
+3. Siga o instalador (*Avançar → Instalar*) — ele cria automaticamente o atalho **AGB** na sua **Área de Trabalho** e no **Menu Iniciar**.
+4. Ao abrir o **AGB**, clique em **Sim** na janela de permissão de **Administrador** (necessário para aplicar chaves em `HKLM`, configurar planos de energia e gerenciar serviços do Windows).
 
-### Opção 2 — Executar pelo Código-Fonte (Para Desenvolvedores)
-Requer **Node.js 20+** e **pnpm**:
+### Opção 2 — Versão Portátil `.zip` (Sem Instalação)
+1. Baixe [**AGB-1.0.0-win.zip**](https://github.com/VictorSallesBz/AGB/releases/latest/download/AGB-1.0.0-win.zip).
+2. Clique com o botão direito no arquivo e escolha **Extrair tudo...**.
+3. Entre na pasta extraída e execute **`agb.exe`** (aceitando a permissão de **Administrador**).
+
+<details>
+<summary>💻 <strong>Opção 3 — Para Desenvolvedores:</strong> rodar pelo código-fonte (Node.js 20+ e pnpm)</summary>
+
 ```powershell
 git clone https://github.com/VictorSallesBz/AGB.git
 cd AGB
@@ -53,9 +68,11 @@ pnpm run build:registry -- -y
 pnpm run dev
 ```
 
+</details>
+
 ### Passo a Passo Ideal de Primeiro Uso
 1. **Crie um Ponto de Restauração:** Abra a aba **Restauração** e clique em **Criar Ponto de Restauração** antes de qualquer modificação grande.
-2. **Escolha um Perfil ou Personalize:** No **Painel**, escolha entre **Leve**, **Moderado** ou **Agressivo** (clique em **Ver ajustes** para conferir e abrir o **Manual** de cada item antes de aplicar), ou configure individualmente na aba **Ajustes**.
+2. **Escolha um Perfil ou Personalize:** No **Painel**, escolha entre **Leve**, **Recomendado** ou **Agressivo** (clique em **Ver ajustes** para conferir e abrir o **Manual** de cada item antes de aplicar), ou configure individualmente na aba **Ajustes**.
 3. **Limpe o Sistema e Revise Aplicativos:** Use a aba **Aplicativos** para desativar programas pesados na inicialização e a aba **Limpeza** para liberar espaço.
 4. **Teste o Melhor DNS:** Na aba **DNS**, execute o **Benchmark** para descobrir qual servidor responde com menor ping na sua conexão.
 5. **Reinicie o PC:** Alguns ajustes de Registro, Rede e Kernel só entram totalmente em vigor após reiniciar o Windows.
@@ -70,9 +87,9 @@ O Painel centraliza a visão geral da sua máquina e oferece otimização rápid
 - **Telemetria em Tempo Real:** Exibe modelo de CPU, uso de memória RAM, GPU instalada, armazenamento principal, versão do Windows e contagem de ajustes ativos no momento.
 - **Game Booster Ativo:** Alternador rápido dedicado a sessões de jogo que otimiza o plano de energia, prioridades e reduz interferências durante partidas.
 - **Perfis de Otimização Pré-Configurados:**
-  - **Perfil Leve (0 ajustes):** Ideal para notebooks, PCs de trabalho ou quem busca estabilidade total com melhorias essenciais de resposta e telemetria básica.
-  - **Perfil Moderado (0 ajustes):** Equilíbrio recomendado para a maioria dos jogadores, reduzindo processos secundários e melhorando rede e tempo de resposta sem sacrificar recursos comuns do Windows.
-  - **Perfil Agressivo (0 ajustes no perfil / 28 aplicados conforme sua GPU):** Focado em máximo FPS e latência mínima. Detecta automaticamente se sua placa de vídeo é **NVIDIA** ou **AMD** e aplica exclusivamente a otimização correspondente (`optimize-nvidia-settings` ou `optimize-amd-settings`).
+  - **Perfil Leve (9 ajustes):** Ideal para notebooks, PCs de trabalho ou quem busca estabilidade total com melhorias essenciais de resposta e telemetria básica.
+  - **Perfil Recomendado (18 ajustes):** Equilíbrio ideal para a maioria dos jogadores (inclusive CS2), reduzindo processos secundários e melhorando rede, MPO, USB e tempo de resposta sem sacrificar recursos comuns do Windows.
+  - **Perfil Agressivo (29 ajustes no perfil / 28 aplicados conforme sua GPU):** Focado em máximo FPS e latência mínima. Detecta automaticamente se sua placa de vídeo é **NVIDIA** ou **AMD** e aplica exclusivamente a otimização correspondente (`optimize-nvidia-settings` ou `optimize-amd-settings`).
 - **Botão "Ver ajustes" do Perfil:** Abre o modal detalhando todos os ajustes do perfil, se cada um já está **Ativo** ou **Desativado**, um botão **Manual** individual (que leva direto para a seção correspondente neste README) e o botão para aplicar todo o perfil com um clique.
 
 ### 2. Ajustes (Tweaks)
@@ -168,66 +185,66 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 | Ajuste | ID | Categorias | Risco | Reversível | Perfis |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | [Relógio em Formato 24 Horas](#24-hour-clock) | `24-hour-clock` | Geral, Aparência | Baixo | Sim | — |
-| [Plano de Energia Gamer AGB](#agb-power-plan) | `agb-power-plan` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
+| [Plano de Energia Gamer AGB](#agb-power-plan) | `agb-power-plan` | Desempenho, Jogos (Gaming) | Baixo | Sim | Recomendado, Agressivo |
 | [Alinhar Barra de Tarefas à Esquerda](#align-taskbar-left) | `align-taskbar-left` | Geral, Aparência | Baixo | Sim | — |
 | [Despoluir o Windows (Debloat)](#debloat-windows) | `debloat-windows` | Desempenho, Privacidade | Baixo | Não | — |
 | [Tela Azul Detalhada (BSOD)](#detailed-bsod) | `detailed-bsod` | Geral | Baixo | Sim | — |
-| [Desativar Apps da MS Store em Segundo Plano](#disable-background-ms-store-apps) | `disable-background-ms-store-apps` | Desempenho, Privacidade | Baixo | Sim | — |
-| [Desativar Sugestões e Apps Promocionais](#consumer-features) | `consumer-features` | Privacidade | Baixo | Sim | — |
-| [Desativar Microsoft Copilot](#disable-copilot) | `disable-copilot` | Desempenho, Privacidade | Baixo | Sim | — |
+| [Desativar Apps da MS Store em Segundo Plano](#disable-background-ms-store-apps) | `disable-background-ms-store-apps` | Desempenho, Privacidade | Baixo | Sim | Agressivo |
+| [Desativar Sugestões e Apps Promocionais](#consumer-features) | `consumer-features` | Privacidade | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Desativar Microsoft Copilot](#disable-copilot) | `disable-copilot` | Desempenho, Privacidade | Baixo | Sim | Agressivo |
 | [Desativar Isolamento de Núcleo (HVCI)](#disable-core-isolation) | `disable-core-isolation` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
 | [Desativar Proteção em Tempo Real do Defender](#disable-defender-rtp) | `disable-defender-rtp` | Desempenho, Geral | Baixo | Sim | — |
-| [Desativar Delivery Optimization (Updates P2P)](#disable-delivery-optimization) | `disable-delivery-optimization` | Rede, Desempenho, Privacidade | Baixo | Sim | — |
-| [Desativar Pré-carregamento do Microsoft Edge](#disable-edge-pre-launching) | `disable-edge-pre-launching` | Sistema, Privacidade | Baixo | Sim | — |
-| [Desativar Inicialização Rápida (Fast Startup)](#disable-fast-startup) | `disable-fast-startup` | Sistema, Desempenho | Baixo | Sim | — |
+| [Desativar Delivery Optimization (Updates P2P)](#disable-delivery-optimization) | `disable-delivery-optimization` | Rede, Desempenho, Privacidade | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Desativar Pré-carregamento do Microsoft Edge](#disable-edge-pre-launching) | `disable-edge-pre-launching` | Sistema, Privacidade | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Desativar Inicialização Rápida (Fast Startup)](#disable-fast-startup) | `disable-fast-startup` | Sistema, Desempenho | Baixo | Sim | Recomendado, Agressivo |
 | [Desativar Xbox Game Bar](#disable-gamebar) | `disable-gamebar` | Desempenho | Baixo | Sim | — |
 | [Desativar Hibernação do Sistema](#disable-hibernation) | `disable-hibernation` | Desempenho, Geral | Baixo | Sim | — |
-| [Desativar Rastreamento de Localização](#disable-location-tracking) | `disable-location-tracking` | Privacidade | Baixo | Sim | — |
+| [Desativar Rastreamento de Localização](#disable-location-tracking) | `disable-location-tracking` | Privacidade | Baixo | Sim | Leve, Recomendado, Agressivo |
 | [Desativar Tela de Bloqueio](#disable-lockscreen) | `disable-lockscreen` | Aparência, Geral | Baixo | Sim | — |
 | [Desativar Desfoque da Tela de Bloqueio](#disable-lockscreen-blur) | `disable-lockscreen-blur` | Aparência, Geral | Baixo | Sim | — |
 | [Desativar Dicas na Tela de Bloqueio](#disable-lockscreen-tips) | `disable-lockscreen-tips` | Geral | Baixo | Sim | — |
 | [Desativar Compressão de Memória RAM](#disable-memory-compression) | `disable-memory-compression` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
-| [Desativar Aceleração do Mouse (Entrada 1:1)](#disable-mouse-acceleration) | `disable-mouse-acceleration` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
-| [Desativar Multiplane Overlay (MPO)](#disable-mpo) | `disable-mpo` | Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) | Baixo | Sim | — |
+| [Desativar Aceleração do Mouse (Entrada 1:1)](#disable-mouse-acceleration) | `disable-mouse-acceleration` | Desempenho, Jogos (Gaming) | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Desativar Multiplane Overlay (MPO)](#disable-mpo) | `disable-mpo` | Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) | Baixo | Sim | Recomendado, Agressivo |
 | [Desativar Avisos de Segurança RDP](#disable-rdp-warnings) | `disable-rdp-warnings` | Geral, Privacidade | Baixo | Sim | — |
-| [Desativar Windows Recall](#disable-windows-recall) | `disable-windows-recall` | Privacidade | Baixo | Sim | — |
+| [Desativar Windows Recall](#disable-windows-recall) | `disable-windows-recall` | Privacidade | Baixo | Sim | Agressivo |
 | [Desativar Armazenamento Reservado](#disable-reserved-storage) | `disable-reserved-storage` | Sistema, Desempenho | Baixo | Sim | — |
 | [Desativar Sugestões da Store na Busca](#disable-store-search-suggestions) | `disable-store-search-suggestions` | Aparência, Privacidade | Baixo | Sim | — |
 | [Desativar SysMain (Superfetch)](#disable-sysmain) | `disable-sysmain` | Desempenho, Sistema | Baixo | Sim | — |
 | [Ocultar Pesquisa da Barra de Tarefas](#disable-taskbar-search) | `disable-taskbar-search` | Geral, Aparência | Baixo | Sim | — |
-| [Desativar Telemetria e Coleta de Dados](#disable-telemetry) | `disable-telemetry` | Privacidade, Desempenho | Baixo | Sim | — |
+| [Desativar Telemetria e Coleta de Dados](#disable-telemetry) | `disable-telemetry` | Privacidade, Desempenho | Baixo | Sim | Leve, Recomendado, Agressivo |
 | [Desativar Túnel IPv6 Teredo](#disable-teredo) | `disable-teredo` | Rede, Jogos (Gaming) | Baixo | Sim | — |
-| [Desativar Suspensão Seletiva de USB](#disable-usb-selective-suspend) | `disable-usb-selective-suspend` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
+| [Desativar Suspensão Seletiva de USB](#disable-usb-selective-suspend) | `disable-usb-selective-suspend` | Desempenho, Jogos (Gaming) | Baixo | Sim | Recomendado, Agressivo |
 | [Desativar Sensor de Wi-Fi (Wi-Fi Sense)](#disable-wifi-sense) | `disable-wifi-sense` | Privacidade, Rede, Geral | Baixo | Sim | — |
 | [Desativar Serviços Xbox](#disable-xbox-services) | `disable-xbox-services` | Jogos (Gaming), Desempenho | Baixo | Sim | — |
 | [Ativar Modo Escuro no Sistema](#enable-dark-mode) | `enable-dark-mode` | Geral, Aparência | Baixo | Sim | — |
-| [Ativar 'Finalizar Tarefa' no Botão Direito](#enable-end-task-right-click) | `enable-end-task-right-click` | Geral | Baixo | Sim | — |
-| [Ativar Modo de Jogo do Windows](#enable-game-mode) | `enable-game-mode` | Geral, Desempenho, Jogos (Gaming) | Baixo | Sim | — |
-| [Ativar Agendamento de GPU por Hardware (HAGS)](#enable-hags) | `enable-hags` | Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) | Baixo | Sim | — |
+| [Ativar 'Finalizar Tarefa' no Botão Direito](#enable-end-task-right-click) | `enable-end-task-right-click` | Geral | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Ativar Modo de Jogo do Windows](#enable-game-mode) | `enable-game-mode` | Geral, Desempenho, Jogos (Gaming) | Baixo | Sim | Leve, Recomendado, Agressivo |
+| [Ativar Agendamento de GPU por Hardware (HAGS)](#enable-hags) | `enable-hags` | Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) | Baixo | Sim | Agressivo |
 | [Restaurar Visualizador de Fotos Clássico](#enable-legacy-photo-viewer) | `enable-legacy-photo-viewer` | Aparência, Geral | Baixo | Sim | — |
 | [Ativar Caminhos Longos (>260 Caracteres)](#enable-long-paths) | `enable-long-paths` | Aparência, Geral, Sistema | Baixo | Sim | — |
 | [Ativar Num Lock ao Iniciar](#enable-numlock-on-startup) | `enable-numlock-on-startup` | Aparência, Geral | Baixo | Sim | — |
-| [Otimização para Jogos em Modo Janela](#enable-optimization-for-windowed-games) | `enable-optimization-for-windowed-games` | Geral, Desempenho, Jogos (Gaming) | Baixo | Sim | — |
+| [Otimização para Jogos em Modo Janela](#enable-optimization-for-windowed-games) | `enable-optimization-for-windowed-games` | Geral, Desempenho, Jogos (Gaming) | Baixo | Sim | Recomendado, Agressivo |
 | [Ocultar Visão de Tarefas e Widgets](#hide-taskview-and-widgets) | `hide-taskview-and-widgets` | Geral, Aparência | Baixo | Sim | — |
-| [Maximizar Taxa de Repetição do Teclado](#keyboard-repeat-rate) | `keyboard-repeat-rate` | Jogos (Gaming), Desempenho | Baixo | Sim | — |
-| [Eliminar Atraso de Menus (MenuShowDelay 0)](#menu-show-delay-zero) | `menu-show-delay-zero` | Desempenho, Aparência | Baixo | Sim | — |
-| [Otimizar Configurações AMD Radeon](#optimize-amd-settings) | `optimize-amd-settings` | Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) | Baixo | Sim | — |
-| [Otimizar Desempenho do Discord](#optimize-discord) | `optimize-discord` | Desempenho, Jogos (Gaming), Geral | Baixo | Sim | — |
-| [Otimizar Input Lag (Mouse e Teclado)](#optimize-input-lag) | `optimize-input-lag` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
-| [Otimizar Configurações de Rede (TCP/IP)](#optimize-network-settings) | `optimize-network-settings` | Rede, Jogos (Gaming) | Baixo | Sim | — |
-| [Otimizar Sistema de Arquivos NTFS](#optimize-ntfs) | `optimize-ntfs` | Desempenho, Sistema | Baixo | Sim | — |
-| [Otimizar Configurações NVIDIA](#optimize-nvidia-settings) | `optimize-nvidia-settings` | Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) | Baixo | Sim | — |
+| [Maximizar Taxa de Repetição do Teclado](#keyboard-repeat-rate) | `keyboard-repeat-rate` | Jogos (Gaming), Desempenho | Baixo | Sim | Agressivo |
+| [Eliminar Atraso de Menus (MenuShowDelay 0)](#menu-show-delay-zero) | `menu-show-delay-zero` | Desempenho, Aparência | Baixo | Sim | Agressivo |
+| [Otimizar Configurações AMD Radeon](#optimize-amd-settings) | `optimize-amd-settings` | Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) | Baixo | Sim | Agressivo |
+| [Otimizar Desempenho do Discord](#optimize-discord) | `optimize-discord` | Desempenho, Jogos (Gaming), Geral | Baixo | Sim | Agressivo |
+| [Otimizar Input Lag (Mouse e Teclado)](#optimize-input-lag) | `optimize-input-lag` | Desempenho, Jogos (Gaming) | Baixo | Sim | Recomendado, Agressivo |
+| [Otimizar Configurações de Rede (TCP/IP)](#optimize-network-settings) | `optimize-network-settings` | Rede, Jogos (Gaming) | Baixo | Sim | Recomendado, Agressivo |
+| [Otimizar Sistema de Arquivos NTFS](#optimize-ntfs) | `optimize-ntfs` | Desempenho, Sistema | Baixo | Sim | Recomendado, Agressivo |
+| [Otimizar Configurações NVIDIA](#optimize-nvidia-settings) | `optimize-nvidia-settings` | Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) | Baixo | Sim | Agressivo |
 | [Otimizar Efeitos Visuais do Windows](#optimize-visual-effects) | `optimize-visual-effects` | Desempenho, Aparência | Baixo | Sim | — |
-| [Preferir IPv4 em vez de IPv6](#prefer-ipv4-over-ipv6) | `prefer-ipv4-over-ipv6` | Rede, Jogos (Gaming) | Baixo | Sim | — |
+| [Preferir IPv4 em vez de IPv6](#prefer-ipv4-over-ipv6) | `prefer-ipv4-over-ipv6` | Rede, Jogos (Gaming) | Baixo | Sim | Agressivo |
 | [Abrir Explorer em 'Este Computador' e Ocultar Galeria](#remove-explorer-home-and-gallery) | `remove-explorer-home-and-gallery` | Aparência, Geral | Baixo | Sim | — |
 | [Remover Aplicativos Xbox Integrados](#remove-gaming-apps) | `remove-gaming-apps` | Desempenho, Privacidade | Baixo | Não | — |
-| [Remover Integração com Bing e Busca Web](#remove-ms-bing-integration) | `remove-ms-bing-integration` | Privacidade, Desempenho | Baixo | Sim | — |
+| [Remover Integração com Bing e Busca Web](#remove-ms-bing-integration) | `remove-ms-bing-integration` | Privacidade, Desempenho | Baixo | Sim | Leve, Recomendado, Agressivo |
 | [Remover Microsoft OneDrive](#remove-onedrive) | `remove-onedrive` | Desempenho, Geral, Privacidade | Baixo | Sim | — |
 | [Restaurar Menu de Contexto Clássico do Windows 10](#revert-context-menu) | `revert-context-menu` | Geral, Aparência | Baixo | Sim | — |
 | [Reverter Layout do Menu Iniciar e Ocultar Recomendações](#revert-start-menu-layout) | `revert-start-menu-layout` | Aparência, Geral | Baixo | Sim | — |
 | [Definir PowerShell 7 como Padrão](#set-powershell7-default) | `set-powershell7-default` | Geral | Baixo | Sim | — |
-| [Configurar Serviços Desnecessários para Manual](#set-services-to-manual) | `set-services-to-manual` | Desempenho, Jogos (Gaming) | Baixo | Sim | — |
-| [Prioridade de CPU para Aplicativos em Foco](#set-win32-priority-separation) | `set-win32-priority-separation` | Desempenho | Baixo | Sim | — |
+| [Configurar Serviços Desnecessários para Manual](#set-services-to-manual) | `set-services-to-manual` | Desempenho, Jogos (Gaming) | Baixo | Sim | Agressivo |
+| [Prioridade de CPU para Aplicativos em Foco](#set-win32-priority-separation) | `set-win32-priority-separation` | Desempenho | Baixo | Sim | Recomendado, Agressivo |
 | [Mostrar Extensões de Arquivo](#show-file-extensions) | `show-file-extensions` | Aparência, Geral | Baixo | Sim | — |
 | [Mostrar Arquivos e Pastas Ocultos](#show-hidden-files) | `show-hidden-files` | Aparência, Geral | Baixo | Sim | — |
 | [Mostrar Segundos no Relógio da Barra de Tarefas](#show-seconds-in-taskbar-clock) | `show-seconds-in-taskbar-clock` | Aparência, Geral | Baixo | Sim | — |
@@ -256,7 +273,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="agb-power-plan"></a>
 #### Plano de Energia Gamer AGB (`agb-power-plan`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Plano de energia exclusivo do AGB que desativa o Core Parking, mantém o boost máximo de CPU e desativa a economia do PCIe para estabilizar o 1% Low FPS em jogos.
 - **Como atua tecnicamente:** Configura planos e parâmetros avançados de energia via `powercfg`.
@@ -308,7 +325,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-background-ms-store-apps"></a>
 #### Desativar Apps da MS Store em Segundo Plano (`disable-background-ms-store-apps`)
 
-**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Impede que aplicativos da Microsoft Store fiquem rodando em segundo plano consumindo CPU e RAM.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -322,7 +339,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-consumer-features"></a>
 #### Desativar Sugestões e Apps Promocionais (`consumer-features`)
 
-**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo
 
 - **O que faz:** Impede que o Windows instale automaticamente jogos, aplicativos patrocinados e atalhos da Microsoft Store.
 - **Explicação detalhada:** Desativar sugestões e recursos promocionais pode tornar alguns aplicativos padrão (ex: Vincular ao Celular) inacessíveis. Deseja continuar?
@@ -336,7 +353,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-copilot"></a>
 #### Desativar Microsoft Copilot (`disable-copilot`)
 
-**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Desativa o assistente Microsoft Copilot e remove seus atalhos e processos integrados ao Windows.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
@@ -377,7 +394,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-delivery-optimization"></a>
 #### Desativar Delivery Optimization (Updates P2P) (`disable-delivery-optimization`)
 
-**Categoria:** Rede, Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Rede, Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Impede que o Windows use sua banda de upload para enviar atualizações a outros computadores na internet, reduzindo picos de ping.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -391,7 +408,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-edge-pre-launching"></a>
 #### Desativar Pré-carregamento do Microsoft Edge (`disable-edge-pre-launching`)
 
-**Categoria:** Sistema, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Sistema, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Impede que o Edge inicie automaticamente processos em segundo plano ao ligar o Windows.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -404,7 +421,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-fast-startup"></a>
 #### Desativar Inicialização Rápida (Fast Startup) (`disable-fast-startup`)
 
-**Categoria:** Sistema, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Sistema, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Garante reinicialização limpa dos drivers, GPU e placa de rede ao desligar o PC, evitando perda de desempenho acumulada.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -446,7 +463,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-location-tracking"></a>
 #### Desativar Rastreamento de Localização (`disable-location-tracking`)
 
-**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Bloqueia o acesso a dados de localização geográfica pelo Windows e aplicativos em segundo plano.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows.
@@ -512,7 +529,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-mouse-acceleration"></a>
 #### Desativar Aceleração do Mouse (Entrada 1:1) (`disable-mouse-acceleration`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo
 
 - **O que faz:** Remove a aceleração não linear do cursor para proporcionar precisão absoluta de mira nos jogos.
 - **Explicação detalhada:** Este ajuste substitui a curva de aceleração de ponteiro padrão do Windows por uma curva linear 1:1, proporcionando precisão absoluta em jogos.
@@ -526,7 +543,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-mpo"></a>
 #### Desativar Multiplane Overlay (MPO) (`disable-mpo`)
 
-**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Desativa o MPO do DWM para corrigir piscadas, telas pretas e micro-travamentos em jogos com placas NVIDIA e AMD.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -554,7 +571,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-recall"></a>
 #### Desativar Windows Recall (`disable-windows-recall`)
 
-**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Desativa a captura contínua de screenshots e análise de IA do recurso Recall no Windows 11.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -620,7 +637,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-telemetry"></a>
 #### Desativar Telemetria e Coleta de Dados (`disable-telemetry`)
 
-**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Bloqueia o envio de relatórios de uso e dados de diagnóstico para os servidores da Microsoft.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows; Remove ou ajusta pacotes UWP / arquivos residuais; Ajusta políticas do Microsoft Defender.
@@ -648,7 +665,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="disable-usb-selective-suspend"></a>
 #### Desativar Suspensão Seletiva de USB (`disable-usb-selective-suspend`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Impede que o Windows suspenda portas USB para economizar energia, evitando atraso ao despertar mouses, teclados e dongles sem fio.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Configura planos e parâmetros avançados de energia via `powercfg`.
@@ -703,7 +720,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="enable-end-task-right-click"></a>
 #### Ativar 'Finalizar Tarefa' no Botão Direito (`enable-end-task-right-click`)
 
-**Categoria:** Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Adiciona a opção rápida de finalizar processos travados diretamente pelo menu de contexto da barra de tarefas.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -716,7 +733,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="enable-game-mode"></a>
 #### Ativar Modo de Jogo do Windows (`enable-game-mode`)
 
-**Categoria:** Geral, Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Geral, Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo
 
 - **O que faz:** Prioriza a alocação de threads da CPU e GPU para os jogos em execução, reduzindo processos concorrentes.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -729,7 +746,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="enable-hags"></a>
 #### Ativar Agendamento de GPU por Hardware (HAGS) (`enable-hags`)
 
-**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Delega o gerenciamento de memória de vídeo diretamente à GPU, reduzindo latência e habilitando Frame Generation.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -781,7 +798,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="enable-optimization-for-windowed-games"></a>
 #### Otimização para Jogos em Modo Janela (`enable-optimization-for-windowed-games`)
 
-**Categoria:** Geral, Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Geral, Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo
 
 - **O que faz:** Aplica o modelo moderno de apresentação DirectX para reduzir latência e habilitar Auto HDR em jogos em modo janela.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -808,7 +825,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="keyboard-repeat-rate"></a>
 #### Maximizar Taxa de Repetição do Teclado (`keyboard-repeat-rate`)
 
-**Categoria:** Jogos (Gaming), Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Jogos (Gaming), Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Reduz ao mínimo o atraso inicial e maximiza a velocidade de repetição de teclas no Windows.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -821,7 +838,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="menu-show-delay-zero"></a>
 #### Eliminar Atraso de Menus (MenuShowDelay 0) (`menu-show-delay-zero`)
 
-**Categoria:** Desempenho, Aparência · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, Aparência · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Reduz o atraso de abertura de menus de contexto do Windows para 0ms, tornando o sistema instantâneo.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -834,7 +851,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-amd-settings"></a>
 #### Otimizar Configurações AMD Radeon (`optimize-amd-settings`)
 
-**Categoria:** Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Ajusta configurações de registro do driver AMD Radeon para reduzir micro-stutters, otimizar tesselação e melhorar o frame pacing em jogos.
 - **Explicação detalhada:** Este ajuste otimiza as configurações do driver AMD Radeon no registro: desativa o ULPS para eliminar quedas bruscas de clock e micro-stutters, habilita o Shader Cache e configura a fila de quadros (Flip Queue) para menor latência.
@@ -849,7 +866,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-discord"></a>
 #### Otimizar Desempenho do Discord (`optimize-discord`)
 
-**Categoria:** Desempenho, Jogos (Gaming), Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, Jogos (Gaming), Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Desativa aceleração de hardware e o hook de Overlay do Discord, encerra instâncias ativas e purga caches e telemetria.
 - **Explicação detalhada:** Este ajuste otimiza o Discord e limpa arquivos residuais: - Encerra instâncias em segundo plano antes de aplicar para evitar bloqueios; - Desativa a Aceleração de Hardware (libera 100% da GPU e VRAM para jogos); - Desativa o hook de Overlay no jogo (eliminando micro-stutters e quedas de FPS); - Desativa a inicialização automática com o Windows; - Ativa minimizar para a bandeja; - Limpa os caches Web/GPU, relatórios do Crashpad e logs de telemetria.
@@ -863,7 +880,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-input-lag"></a>
 #### Otimizar Input Lag (Mouse e Teclado) (`optimize-input-lag`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Ajusta a fila de buffer HID para 64 (seguro para mouses de 1000Hz–8000Hz) e desativa travas de acessibilidade para menor latência de entrada.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -876,7 +893,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-network-settings"></a>
 #### Otimizar Configurações de Rede (TCP/IP) (`optimize-network-settings`)
 
-**Categoria:** Rede, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Rede, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo
 
 - **O que faz:** Ajusta parâmetros avançados de TCP/IP, CongestionProvider e buffers de rede para menor latência e maior estabilidade.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Ajusta parâmetros da pilha de rede TCP/IP ou do adaptador de rede.
@@ -890,7 +907,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-ntfs"></a>
 #### Otimizar Sistema de Arquivos NTFS (`optimize-ntfs`)
 
-**Categoria:** Desempenho, Sistema · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Sistema · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Desativa a criação de nomes curtos 8.3 e carimbos de último acesso no NTFS para acelerar o acesso ao disco.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Configura atributos do sistema de arquivos NTFS via `fsutil`.
@@ -903,7 +920,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="optimize-nvidia-settings"></a>
 #### Otimizar Configurações NVIDIA (`optimize-nvidia-settings`)
 
-**Categoria:** Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho, GPU (Placa de Vídeo), Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Configura o Painel NVIDIA para Desempenho Máximo, Low Latency Mode e Shader Cache Ilimitado.
 - **Explicação detalhada:** Este ajuste define as configurações ideais de desempenho e baixa latência no registro da NVIDIA. Você pode reverter essas alterações a qualquer momento abrindo o Painel de Controle da NVIDIA (certifique-se de abrir o painel ao menos uma vez) e clicando em 'Restaurar Padrões'.
@@ -931,7 +948,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="prefer-ipv4-over-ipv6"></a>
 #### Preferir IPv4 em vez de IPv6 (`prefer-ipv4-over-ipv6`)
 
-**Categoria:** Rede, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Rede, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo
 
 - **O que faz:** Faz o Windows priorizar conexões IPv4 sem desativar o IPv6, evitando lentidão de handshake e sem quebrar recursos modernos.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
@@ -973,7 +990,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="remove-ms-bing-integration"></a>
 #### Remover Integração com Bing e Busca Web (`remove-ms-bing-integration`)
 
-**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo
 
 - **O que faz:** Remove resultados do Bing na barra de pesquisa do Windows e desativa a busca na web no menu Iniciar.
 - **Explicação detalhada:** Remove todos os aplicativos integrados ao Bing (Notícias, Clima, Finanças) e desativa a pesquisa na web dentro da barra de busca do Windows. Para restaurar os apps posteriormente, você pode reinstalá-los pela Microsoft Store.
@@ -1041,7 +1058,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="set-services-to-manual"></a>
 #### Configurar Serviços Desnecessários para Manual (`set-services-to-manual`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · ⭐ **Recomendado**
 
 - **O que faz:** Define dezenas de serviços não essenciais do Windows para início manual, liberando centenas de MB de memória RAM.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows.
@@ -1054,7 +1071,7 @@ Clique em qualquer ajuste para pular direto para a explicação detalhada:
 <a id="set-win32-priority-separation"></a>
 #### Prioridade de CPU para Aplicativos em Foco (`set-win32-priority-separation`)
 
-**Categoria:** Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual)
+**Categoria:** Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo
 
 - **O que faz:** Otimiza a alocação de tempo de processador do Windows para priorizar o aplicativo ou jogo ativo.
 - **Como atua tecnicamente:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).

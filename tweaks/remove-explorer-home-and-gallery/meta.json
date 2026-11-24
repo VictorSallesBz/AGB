@@ -1,0 +1,12 @@
+{
+  "title": "Open Explorer to 'This PC' & Hide Gallery",
+  "name": "remove-explorer-home-and-gallery",
+  "category": [
+    "Appearance",
+    "General"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Opens File Explorer directly to 'This PC' and hides the Gallery section from the sidebar."
+}

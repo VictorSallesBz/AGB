@@ -1,0 +1,12 @@
+{
+  "title": "Show File Extensions",
+  "name": "show-file-extensions",
+  "category": [
+    "Appearance",
+    "General"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Displays real file extensions (.exe, .bat, .jpg, etc.) in File Explorer."
+}

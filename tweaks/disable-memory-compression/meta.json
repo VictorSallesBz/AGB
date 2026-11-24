@@ -1,0 +1,15 @@
+{
+  "title": "Disable Memory Compression",
+  "name": "disable-memory-compression",
+  "category": [
+    "Performance",
+    "Gaming"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "caution",
+  "restart": true,
+  "warning": "Recommended only for PCs with 16 GB or more of RAM.",
+  "modal": "Disabling Memory Compression prevents CPU cycles from being spent compressing RAM pages during games like CS2. Recommended only if you have 16 GB+ RAM. Requires a restart.",
+  "description": "Stops Windows from compressing idle memory pages in the background, reducing CPU overhead during gaming."
+}

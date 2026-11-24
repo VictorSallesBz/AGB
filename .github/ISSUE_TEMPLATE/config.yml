@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions
+    url: https://discord.gg/b3HekDzKGS
+    about: You can join the discord to ask questions about AGB or get help with any issues you may be having.
+  - name: AGB Docs
+    url: https://github.com/VictorSallesBz/AGB/blob/main/README.md
+    about: The official documentation for AGB.

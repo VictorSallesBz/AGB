@@ -1,0 +1,13 @@
+{
+  "title": "Optimize NTFS Filesystem",
+  "name": "optimize-ntfs",
+  "category": [
+    "Performance",
+    "System"
+  ],
+  "recommended": true,
+  "reversible": true,
+  "risk": "safe",
+  "warning": "Ideal for SSDs and NVMe: eliminates last-access write timestamps and legacy 8.3 short names.",
+  "description": "Disables NTFS 8.3 short name creation and last-access timestamps to speed up disk access."
+}

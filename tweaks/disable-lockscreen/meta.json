@@ -1,0 +1,9 @@
+{
+  "title": "Disable Lock Screen",
+  "name": "disable-lockscreen",
+  "category": ["Appearance", "General"],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Skips the lock screen wallpaper and goes straight to the sign-in password/PIN prompt."
+}

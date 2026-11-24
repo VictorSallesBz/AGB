@@ -1,0 +1,14 @@
+{
+  "title": "Disable Multiplane Overlay (MPO)",
+  "name": "disable-mpo",
+  "category": [
+    "Performance",
+    "Gaming",
+    "GPU"
+  ],
+  "recommended": true,
+  "reversible": true,
+  "risk": "safe",
+  "restart": true,
+  "description": "Disables Windows Desktop Window Manager MPO to fix flickering, black screens, and micro-stutters on NVIDIA and AMD GPUs."
+}

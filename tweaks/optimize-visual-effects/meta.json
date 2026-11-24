@@ -1,0 +1,12 @@
+{
+  "title": "Optimize Windows Visual Effects",
+  "name": "optimize-visual-effects",
+  "category": [
+    "Performance",
+    "Appearance"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Disables heavy window animations and shadows while keeping crisp font smoothing."
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Disable USB Selective Suspend",
+  "name": "disable-usb-selective-suspend",
+  "category": [
+    "Performance",
+    "Gaming"
+  ],
+  "recommended": true,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Prevents Windows from suspending USB ports and wireless dongles, eliminating wake-up lag on mice and keyboards."
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Restore Classic Windows Photo Viewer",
+  "name": "enable-legacy-photo-viewer",
+  "category": ["Appearance", "General"],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Restores the fast, classic Windows 7 Photo Viewer as an option for opening images."
+}

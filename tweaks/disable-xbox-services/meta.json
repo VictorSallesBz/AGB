@@ -1,0 +1,11 @@
+{
+  "title": "Disable Xbox Services",
+  "name": "disable-xbox-services",
+  "category": ["Gaming", "Performance"],
+  "recommended": false,
+  "reversible": true,
+  "risk": "caution",
+  "warning": "Use if you only play on Steam/Riot/Epic. Do NOT use if you use PC Game Pass, Xbox App, or official Xbox wireless adapters.",
+  "modal": "**When to use:** Recommended if you only play games via Steam, Epic, or Riot and want to disable background Xbox services without uninstalling Xbox apps.\n\n**When NOT to use:** Do NOT apply if you use **PC Game Pass**, the **Xbox App**, or Microsoft Store multiplayer games (such as *Forza Horizon* / *Sea of Thieves*).",
+  "description": "Disables Xbox background services (XblAuthManager, XblGameSave, XboxGipSvc, XboxNetApiSvc) to save RAM without uninstalling apps."
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Disable Fast Startup",
+  "name": "disable-fast-startup",
+  "category": [
+    "System",
+    "Performance"
+  ],
+  "recommended": true,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Ensures clean driver, GPU, and network initialization on shutdown/boot instead of hybrid hibernation."
+}

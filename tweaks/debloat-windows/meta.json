@@ -1,0 +1,18 @@
+{
+  "title": "Debloat Windows",
+  "name": "debloat-windows",
+  "risk": "safe",
+  "description": "Opens the application list so you can select and remove built-in bloatware and apps from Windows.",
+  "reversible": false,
+  "updatedversion": "2.14.0",
+  "recommended": true,
+  "top": true,
+  "deepDescription": "Presents a visual list of all built-in Windows applications and bloatware, allowing you to choose exactly which apps you want to uninstall and remove from your system.",
+  "category": ["Performance", "Privacy"],
+  "links": [
+    {
+      "name": "AGB Debloat Script",
+      "url": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/debloat-windows/apply.ps1"
+    }
+  ]
+}

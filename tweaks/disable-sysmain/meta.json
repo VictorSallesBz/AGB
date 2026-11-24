@@ -1,0 +1,14 @@
+{
+  "title": "Disable SysMain (Superfetch)",
+  "name": "disable-sysmain",
+  "category": [
+    "Performance",
+    "System"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "caution",
+  "warning": "Recommended only if Windows is installed on an SSD or NVMe. Do NOT enable on mechanical HDDs.",
+  "modal": "SysMain preloads apps into RAM. On fast SSD/NVMe drives it adds unnecessary background disk I/O and RAM usage, but on mechanical HDDs it helps loading times. Do you want to disable it?",
+  "description": "Stops and disables the SysMain service to reduce background disk activity and free RAM on SSD/NVMe systems."
+}

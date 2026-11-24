@@ -1,0 +1,12 @@
+{
+  "title": "Disable Lock Screen Blur",
+  "name": "disable-lockscreen-blur",
+  "category": [
+    "Appearance",
+    "General"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Removes the acrylic blur effect on the login/lock screen for faster responsiveness."
+}

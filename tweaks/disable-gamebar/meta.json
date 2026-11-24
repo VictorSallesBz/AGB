@@ -1,0 +1,11 @@
+{
+  "title": "Disable Gamebar",
+  "name": "disable-gamebar",
+  "risk": "caution",
+  "warning": "Do NOT use on AMD Ryzen X3D CPUs (5800X3D/7800X3D/9800X3D) — Windows needs Game Bar to schedule games on 3D V-Cache cores.",
+  "description": "Disables The Xbox gamebar",
+  "docs_warning": "Do not enable this if you have an X3D CPU (e.g., AMD Ryzen 7 7800X3D / 9800X3D) as Windows uses Game Bar to allocate 3D V-Cache cores to games.",
+  "modal": "**When to use:** On Intel or non-X3D AMD CPUs if you want to remove Xbox Game Bar overlays and background capture.\n\n**When NOT to use:** Do NOT enable if you have an **AMD Ryzen X3D CPU** (e.g., 7800X3D, 7950X3D, 9800X3D), as disabling Game Bar breaks 3D V-Cache core scheduling.",
+  "deepDescription": "Attempts to remove Xbox Gaming Overlay using Remove-AppxPackage, with a fallback to winget, to eliminate background Xbox services and overlays that can consume CPU, RAM, and GPU resources, improving system performance and reducing in-game interruptions.",
+  "category": ["Performance"]
+}

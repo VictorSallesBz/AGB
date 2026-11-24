@@ -1,0 +1,11 @@
+{
+  "title": "Disable Core Isolation",
+  "name": "disable-core-isolation",
+  "risk": "caution",
+  "category": ["Performance", "Gaming"],
+  "restart": true,
+  "warning": "FACEIT Anti-Cheat, GamersClub, and Valorant (Vanguard) often require Core Isolation (HVCI) enabled.",
+  "modal": "**Anti-Cheat Warning:** Platforms like **FACEIT**, **GamersClub**, and **Valorant (Vanguard)** frequently require Memory Integrity (HVCI) to be enabled. If you play on those platforms, keep Core Isolation enabled.",
+  "description": "Disables Core Isolation Memory Integrity to improve system performance",
+  "deepDescription": "Creates the registry path for Hypervisor-Enforced Code Integrity under DeviceGuard if missing, and disables HVCI by setting Enabled to 0 in the system-wide registry."
+}

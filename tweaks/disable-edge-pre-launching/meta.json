@@ -1,0 +1,12 @@
+{
+  "name": "disable-edge-pre-launching",
+  "title": "Disable Edge Background Pre-launching",
+  "risk": "safe",
+  "deepDescription": "Disables Microsoft Edge background pre-launching, tab pre-loading, and Startup Boost without removing WebView2 runtime binaries required by Steam, Epic Games, Riot Client, and Xbox App.",
+  "recommended": true,
+  "top": true,
+  "description": "Disables Microsoft Edge background processes and Startup Boost.",
+  "category": ["System", "Privacy"],
+  "addedversion": "2.22.0"
+}
+

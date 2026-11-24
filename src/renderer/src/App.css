@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
+layer(base);
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@theme {
+  --color-agb-old-primary: #01e5ff;
+  --color-agb-primary: var(--color-agb-primary);
+  --color-agb-text: var(--color-agb-text);
+  --color-agb-text-secondary: var(--color-agb-text-secondary);
+  --color-agb-text-muted: var(--color-agb-text-muted);
+  --color-agb-bg: var(--color-agb-bg);
+  --color-agb-card: var(--color-agb-card);
+  --color-agb-border: var(--color-agb-border);
+  --color-agb-secondary: var(--color-agb-secondary);
+  --color-agb-accent: var(--color-agb-accent);
+  --color-agb-border-secondary: var(--color-agb-border-secondary);
+  --color-agb-old-secondary: #005fff;
+
+  --animate-border-spin: border-spin 3s linear infinite;
+
+  @keyframes border-spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 6px 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-agb-border-secondary);
+    border-radius: 9999px;
+    transition: background 0.2s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-agb-primary);
+  }
+  .light,
+  [data-theme="light"] {
+    --color-agb-bg: #f0f0f0;
+    --color-agb-text: #1e293b;
+    --color-agb-text-dark: #334155;
+    --color-agb-text-darker: #475569;
+    --color-agb-text-secondary: #64748b;
+    --color-agb-text-muted: #94a3b8;
+    --color-agb-card: #ffffff;
+    --color-agb-border: #d5dae2;
+    --color-agb-border-secondary: #cbd5e1;
+    --color-agb-primary: #3b82f6;
+    --color-agb-secondary: #2dac7d;
+    --color-agb-accent: #f1f5f9;
+  }
+
+  :root,
+  .dark,
+  [data-theme="dark"],
+  .gray {
+    --color-agb-bg: #111214;
+    --color-agb-text: #f5f6fa;
+    --color-agb-text-dark: #e0e2e6;
+    --color-agb-text-darker: #c8ccd2;
+    --color-agb-text-secondary: #aeb3bb;
+    --color-agb-text-muted: #7a7f87;
+    --color-agb-card: #18191b;
+    --color-agb-border: #26272b;
+    --color-agb-border-secondary: #232426;
+    --color-agb-primary: #6366f1;
+    --color-agb-secondary: #b981f8;
+    --color-agb-accent: #232324;
+  }
+  .Toastify__toast {
+    background-color: var(--color-agb-card) !important;
+    border: 1px solid var(--color-agb-border) !important;
+    color: var(--color-agb-text) !important;
+    --toastify-icon-color-success: var(--color-agb-secondary) !important;
+  }
+  .Toastify__close-button {
+    color: var(--color-agb-text-secondary) !important;
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Poppins", "Noto Sans", sans-serif;
+    font-synthesis: none;
+  }
+}
+@layer utilities {
+  * {
+    user-select: none;
+  }
+}
+
+.recharts-line path {
+  stroke: var(--color-agb-primary);
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body, * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-agb-border-secondary) transparent;
+}

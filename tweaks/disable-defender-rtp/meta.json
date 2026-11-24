@@ -1,0 +1,10 @@
+{
+  "title": "Disable Defender RTP",
+  "name": "disable-defender-rtp",
+  "risk": "risky",
+  "category": ["Performance", "General"],
+  "description": "Disables Windows Defender Real-time Protection (RTP).",
+  "warning": "Requires Tamper Protection to be disabled in Windows Security first.",
+  "modal": "To disable Defender Real-Time Protection on Windows 10/11, you must first disable **Tamper Protection**:\n\n1. Open **Windows Security** -> **Virus & threat protection**\n2. Click **Manage settings** under 'Virus & threat protection settings'\n3. Turn **Tamper Protection** to **Off**\n\nOnce Tamper Protection is Off, this tweak will disable Real-Time scanning. Note: This does not disable the entire Defender suite.",
+  "deepDescription": "Disables Microsoft Defender Real-time Protection by setting `DisableRealtimeMonitoring` via `Set-MpPreference` and policy registry keys. Note: On Windows 10 (1903+) and Windows 11, Tamper Protection must be turned off manually in Windows Security settings beforehand, or Windows will block the modification."
+}

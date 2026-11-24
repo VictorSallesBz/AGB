@@ -1,0 +1,12 @@
+{
+  "title": "Revert Start Menu Layout & Hide Recommendations",
+  "name": "revert-start-menu-layout",
+  "category": [
+    "Appearance",
+    "General"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Hides suggested/recommended files and apps and simplifies the Windows 11 Start Menu layout."
+}

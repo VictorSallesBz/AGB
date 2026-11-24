@@ -1,0 +1,12 @@
+{
+  "title": "Enable Num Lock on Startup",
+  "name": "enable-numlock-on-startup",
+  "category": [
+    "Appearance",
+    "General"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Automatically enables Num Lock at system boot and on the sign-in screen."
+}

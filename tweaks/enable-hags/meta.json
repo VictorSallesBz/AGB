@@ -1,0 +1,9 @@
+{
+  "title": "Enable HAGS",
+  "name": "enable-hags",
+  "category": ["Performance", "Gaming", "GPU"],
+  "risk": "safe",
+  "warning": "Use on modern RTX/RX GPUs (required for DLSS Frame Generation). Disable if you notice micro-stutters while streaming with OBS or on older GTX/RX 500 GPUs.",
+  "description": "Enables HAGS (Hardware Accelerated GPU Scheduling)",
+  "deepDescription": "Hardware-Accelerated GPU Scheduling (HAGS) is a Windows feature that shifts more GPU management and scheduling tasks from the CPU to the GPU, reducing CPU overhead and potentially improving performance and latency"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Disable Store Search Suggestions",
+  "name": "disable-store-search-suggestions",
+  "category": [
+    "Appearance",
+    "Privacy"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Prevents Windows Search and Start Menu from suggesting Microsoft Store apps."
+}

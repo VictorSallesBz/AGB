@@ -1,0 +1,12 @@
+{
+  "title": "Maximize Keyboard Repeat Rate",
+  "name": "keyboard-repeat-rate",
+  "category": [
+    "Gaming",
+    "Performance"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Sets keyboard repeat delay to minimum and repeat speed to maximum allowed by Windows."
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Disable Teredo IPv6 Tunneling",
+  "name": "disable-teredo",
+  "category": [
+    "Network",
+    "Gaming"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "caution",
+  "warning": "Do not enable if you use Xbox Party voice chat or Microsoft Store games relying on Xbox Live P2P.",
+  "description": "Disables legacy Teredo IPv6 tunneling that can add network latency on some routers."
+}

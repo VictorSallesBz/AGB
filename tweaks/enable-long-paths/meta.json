@@ -1,0 +1,13 @@
+{
+  "title": "Enable Long Paths (>260 Characters)",
+  "name": "enable-long-paths",
+  "category": [
+    "Appearance",
+    "General",
+    "System"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Removes the legacy 260-character path limit for deeply nested folders and files."
+}

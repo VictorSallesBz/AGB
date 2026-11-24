@@ -1,0 +1,10 @@
+{
+  "title": "Optimize Input Lag (Mouse & Keyboard)",
+  "name": "optimize-input-lag",
+  "risk": "safe",
+  "description": "Reduces HID queue latency, disables StickyKeys/FilterKeys hooks and sets high-precision timer resolution for mouse and keyboard.",
+  "deepDescription": "Modifies HID class driver queue size (DataQueueSize = 16) in mouclass and kbdclass, disables Windows accessibility keyboard hooks (StickyKeys, FilterKeys, ToggleKeys) that inject input delays, and optimizes system timer resolution.",
+  "recommended": true,
+  "top": true,
+  "category": ["Performance", "Gaming"]
+}

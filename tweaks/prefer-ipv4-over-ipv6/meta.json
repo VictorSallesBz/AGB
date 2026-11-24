@@ -1,0 +1,13 @@
+{
+  "title": "Prefer IPv4 over IPv6",
+  "name": "prefer-ipv4-over-ipv6",
+  "category": [
+    "Network",
+    "Gaming"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "warning": "Prioritizes IPv4 without disabling IPv6, avoiding Windows service breakages.",
+  "description": "Makes Windows prefer IPv4 connections first without disabling IPv6, preventing handshake delays on IPv4-only networks."
+}

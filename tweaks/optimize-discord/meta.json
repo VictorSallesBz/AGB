@@ -1,0 +1,10 @@
+{
+  "title": "Optimize Discord Performance",
+  "name": "optimize-discord",
+  "risk": "safe",
+  "modal": "This tweak safely terminates running instances, disables hardware acceleration to free 100% GPU/VRAM for games, disables in-game overlay hook to eliminate FPS drops, enables minimize-to-tray, and purges accumulated caches, crashpad dumps, and telemetry logs.",
+  "reversible": true,
+  "deepDescription": "Applies the following optimizations for Discord:\n\n- Terminate Active Processes → Safely closes running Discord instances before applying to prevent file locks\n- Disable Hardware Acceleration → Frees 100% GPU and VRAM for the game, eliminating GPU contention and stutters\n- Disable In-Game Overlay Hook → Eliminates DirectX/Vulkan frame hooking micro-stutters and input lag\n- Disable Open on Windows Startup → Prevents boot slowdown and background memory consumption\n- Enable Minimize to Tray → Reduces background RAM and viewport rendering when closed\n- Clear Caches, Telemetry & Logs (Cache, GPUCache, Crashpad, logs) → Frees disk space and removes telemetry clutter",
+  "category": ["Performance", "Gaming", "General"],
+  "description": "Disables Discord hardware acceleration and overlay hook, cleans caches, crashpad dumps and telemetry logs"
+}

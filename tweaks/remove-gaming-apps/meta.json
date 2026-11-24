@@ -1,0 +1,16 @@
+{
+  "title": "Remove Gaming Apps",
+  "name": "remove-gaming-apps",
+  "risk": "caution",
+  "warning": "Do NOT use on AMD Ryzen X3D CPUs (7800X3D/9800X3D) or if you use PC Game Pass / Xbox App.",
+  "description": "Removes Xbox app, Xbox Game Bar, and Xbox Game Overlay",
+  "reversible": false,
+  "modal": "**When to use:** Only if you never use Xbox App/Game Pass and want to permanently remove Xbox packages.\n\n**When NOT to use:** Do NOT use on **AMD Ryzen X3D processors** (e.g., 7800X3D, 9800X3D) since Windows relies on Game Bar for 3D V-Cache core scheduling, or if you play **PC Game Pass** games.\n\nYou can reinstall them later from the Microsoft Store.",
+  "category": ["Performance", "Privacy"],
+  "links": [
+    {
+      "name": "Reinstall Xbox App",
+      "url": "https://apps.microsoft.com/detail/9mv0b5hzvk9z"
+    }
+  ]
+}

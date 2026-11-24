@@ -1,0 +1,13 @@
+{
+  "title": "Disable Delivery Optimization (P2P Updates)",
+  "name": "disable-delivery-optimization",
+  "category": [
+    "Network",
+    "Performance",
+    "Privacy"
+  ],
+  "recommended": true,
+  "reversible": true,
+  "risk": "safe",
+  "description": "Stops Windows from using your upload bandwidth to distribute Windows Updates to other PCs on the internet."
+}

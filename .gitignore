@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production and packaging builds
+dist/
+dist-old/
+dist-2/
+out/
+*.nupkg
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and linter caches
+*.log
+*.log*
+.eslintcache
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Temporary and sync files
+.mutagen.yml

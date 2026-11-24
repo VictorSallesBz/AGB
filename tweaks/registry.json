@@ -1,0 +1,877 @@
+{
+  "version": "2026-11-24T02:08:37.863Z",
+  "tweaks": [
+    {
+      "id": "24-hour-clock",
+      "title": "Set 24-Hour Clock",
+      "description": "Changes clock to display 24-hour format.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#24-hour-clock",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/24-hour-clock/meta.json"
+    },
+    {
+      "id": "agb-power-plan",
+      "title": "AGB Ultimate Gaming Power Plan",
+      "description": "Custom power plan disabling Core Parking, allowing full 100% Turbo/Precision Boost with 5% idle scaling, and disabling PCIe link power management for maximum gaming FPS stability.",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#agb-power-plan",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/agb-power-plan/meta.json"
+    },
+    {
+      "id": "align-taskbar-left",
+      "title": "Align Taskbar Left",
+      "description": "Aligns the taskbar to the left side of the screen.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#align-taskbar-left",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/align-taskbar-left/meta.json"
+    },
+    {
+      "id": "debloat-windows",
+      "title": "Debloat Windows",
+      "description": "Opens the application list so you can select and remove built-in bloatware and apps from Windows.",
+      "category": [
+        "Performance",
+        "Privacy"
+      ],
+      "recommended": true,
+      "reversible": false,
+      "updatedversion": "2.14.0",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#debloat-windows",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/debloat-windows/meta.json"
+    },
+    {
+      "id": "detailed-bsod",
+      "title": "Detailed BSOD",
+      "description": "Adds detailed information to the Blue Screen of Death (BSOD) screen",
+      "category": [
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "updatedversion": "2.21.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#detailed-bsod",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/detailed-bsod/meta.json"
+    },
+    {
+      "id": "disable-background-ms-store-apps",
+      "title": "Disable Background MS Store apps",
+      "description": "Disables Microsoft Store apps from running in the background",
+      "category": [
+        "Performance",
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-background-ms-store-apps",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-background-ms-store-apps/meta.json"
+    },
+    {
+      "id": "consumer-features",
+      "title": "Disable Consumer Features",
+      "description": "Prevents Windows from automatically installing games, third-party apps, or app links from the Microsoft Store.",
+      "category": [
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "addedversion": "2.14.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#consumer-features",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-consumer-features/meta.json"
+    },
+    {
+      "id": "disable-copilot",
+      "title": "Disable Copilot",
+      "description": "Removes Microsoft's Copilot feature. (will fail if copilot is not installed)",
+      "category": [
+        "Performance",
+        "Privacy"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-copilot",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-copilot/meta.json"
+    },
+    {
+      "id": "disable-core-isolation",
+      "title": "Disable Core Isolation",
+      "description": "Disables Core Isolation Memory Integrity to improve system performance",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-core-isolation",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-core-isolation/meta.json"
+    },
+    {
+      "id": "disable-defender-rtp",
+      "title": "Disable Defender RTP",
+      "description": "Disables Windows Defender Real-time Protection (RTP).",
+      "category": [
+        "Performance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-defender-rtp",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-defender-rtp/meta.json"
+    },
+    {
+      "id": "disable-edge-pre-launching",
+      "title": "Disable Edge Background Pre-launching",
+      "description": "Disables Microsoft Edge background processes and Startup Boost.",
+      "category": [
+        "System",
+        "Privacy"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "addedversion": "2.22.0",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-edge-pre-launching",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-edge-pre-launching/meta.json"
+    },
+    {
+      "id": "disable-gamebar",
+      "title": "Disable Gamebar",
+      "description": "Disables The Xbox gamebar",
+      "category": [
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-gamebar",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-gamebar/meta.json"
+    },
+    {
+      "id": "disable-hibernation",
+      "title": "Disable Hibernation",
+      "description": "Disables the hibernation feature to free up disk space and improve shutdown speed",
+      "category": [
+        "Performance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-hibernation",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-hibernation/meta.json"
+    },
+    {
+      "id": "disable-location-tracking",
+      "title": "Disable Location Tracking",
+      "description": "Disables Windows location tracking.",
+      "category": [
+        "Privacy"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "updatedversion": "2.21.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-location-tracking",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-location-tracking/meta.json"
+    },
+    {
+      "id": "disable-lockscreen-tips",
+      "title": "Disable Lockscreen Tips",
+      "description": "Disables tips on the lockscreen.",
+      "category": [
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-lockscreen-tips",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-lockscreen-tips/meta.json"
+    },
+    {
+      "id": "disable-mouse-acceleration",
+      "title": "Disable Mouse Acceleration",
+      "description": "Disables mouse acceleration for a more consistent and precise mouse movement experience. Great for gaming",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-mouse-acceleration",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-mouse-acceleration/meta.json"
+    },
+    {
+      "id": "disable-rdp-warnings",
+      "title": "Disable RDP Warnings for Unsigned Files",
+      "description": "Suppresses Windows security warnings when opening unsigned Remote Desktop (.rdp) files.",
+      "category": [
+        "General",
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "addedversion": "2.19.0",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-rdp-warnings",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-rdp-warnings/meta.json"
+    },
+    {
+      "id": "disable-windows-recall",
+      "title": "Disable Windows Recall",
+      "description": "Disables the Windows Recall feature for better privacy.",
+      "category": [
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "addedversion": "2.14.2",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-windows-recall",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-recall/meta.json"
+    },
+    {
+      "id": "disable-taskbar-search",
+      "title": "Disable Taskbar Search",
+      "description": "Hides the search box from the taskbar.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "addedversion": "2.22.0",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-taskbar-search",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-taskbar-search/meta.json"
+    },
+    {
+      "id": "disable-telemetry",
+      "title": "Disable Telemetry",
+      "description": "Disables Windows telemetry and data collection for improved privacy and performance.",
+      "category": [
+        "Privacy",
+        "Performance"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "addedversion": "2.14.0",
+      "updatedversion": "2.21.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-telemetry",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-telemetry/meta.json"
+    },
+    {
+      "id": "disable-wifi-sense",
+      "title": "Disable Wifi Sense",
+      "description": "Disables Wifi Sense to prevent sharing of Wi-Fi networks with contacts",
+      "category": [
+        "Privacy",
+        "Network",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-wifi-sense",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-wifi-sense/meta.json"
+    },
+    {
+      "id": "enable-dark-mode",
+      "title": "Enable Dark Mode",
+      "description": "Enables dark mode for Windows. Great for unactivated systems.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-dark-mode",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-dark-mode/meta.json"
+    },
+    {
+      "id": "enable-end-task-right-click",
+      "title": "Enable End Task With Right Click",
+      "description": "Enables the \"End Task\" option in the taskbar context menu",
+      "category": [
+        "General"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-end-task-right-click",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-end-task-right-click/meta.json"
+    },
+    {
+      "id": "enable-game-mode",
+      "title": "Enable Game Mode",
+      "description": "Enables Game Mode on windows",
+      "category": [
+        "General",
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-game-mode",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-game-mode/meta.json"
+    },
+    {
+      "id": "enable-hags",
+      "title": "Enable HAGS",
+      "description": "Enables HAGS (Hardware Accelerated GPU Scheduling)",
+      "category": [
+        "Performance",
+        "Gaming",
+        "GPU"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-hags",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-hags/meta.json"
+    },
+    {
+      "id": "enable-optimization-for-windowed-games",
+      "title": "Enable Optimization For Windowed Games",
+      "description": "Enables Optimization For Windowed Games on windows",
+      "category": [
+        "General",
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-optimization-for-windowed-games",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-optimization-for-windowed-games/meta.json"
+    },
+    {
+      "id": "hide-taskview-and-widgets",
+      "title": "Hide Taskview and Widgets",
+      "description": "Hides the Taskview and Widgets buttons on the taskbar.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#hide-taskview-and-widgets",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/hide-taskview-and-widgets/meta.json"
+    },
+    {
+      "id": "menu-show-delay-zero",
+      "title": "Menu Show Delay Zero",
+      "description": "Removes the delay when opening menus.",
+      "category": [
+        "Performance",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#menu-show-delay-zero",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/menu-show-delay-zero/meta.json"
+    },
+    {
+      "id": "optimize-amd-settings",
+      "title": "Optimize AMD Settings",
+      "description": "Optimizes AMD Radeon registry and driver settings to improve gaming performance and reduce stutters",
+      "category": [
+        "Performance",
+        "GPU",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-amd-settings",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-amd-settings/meta.json"
+    },
+    {
+      "id": "optimize-discord",
+      "title": "Optimize Discord Performance",
+      "description": "Disables Discord hardware acceleration and overlay hook, cleans caches, crashpad dumps and telemetry logs",
+      "category": [
+        "Performance",
+        "Gaming",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-discord",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-discord/meta.json"
+    },
+    {
+      "id": "optimize-input-lag",
+      "title": "Optimize Input Lag (Mouse & Keyboard)",
+      "description": "Reduces HID queue latency, disables StickyKeys/FilterKeys hooks and sets high-precision timer resolution for mouse and keyboard.",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-input-lag",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-input-lag/meta.json"
+    },
+    {
+      "id": "optimize-network-settings",
+      "title": "Optimize Network Settings",
+      "description": "Changes various Windows settings to improve network latency and speeds.",
+      "category": [
+        "Network",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "updatedversion": "2.9.0",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-network-settings",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-network-settings/meta.json"
+    },
+    {
+      "id": "optimize-nvidia-settings",
+      "title": "Optimize Nvidia Settings",
+      "description": "Changes Nvidia Control Panel settings to improve gaming performance",
+      "category": [
+        "Performance",
+        "GPU",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-nvidia-settings",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-nvidia-settings/meta.json"
+    },
+    {
+      "id": "remove-gaming-apps",
+      "title": "Remove Gaming Apps",
+      "description": "Removes Xbox app, Xbox Game Bar, and Xbox Game Overlay",
+      "category": [
+        "Performance",
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": false,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#remove-gaming-apps",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/remove-gaming-apps/meta.json"
+    },
+    {
+      "id": "remove-ms-bing-integration",
+      "title": "Remove Microsoft Bing Integration",
+      "description": "Removes Bing apps and disables Bing web search in Windows Search.",
+      "category": [
+        "Privacy",
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#remove-ms-bing-integration",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/remove-ms-bing-integration/meta.json"
+    },
+    {
+      "id": "remove-onedrive",
+      "title": "Remove OneDrive",
+      "description": "Removes OneDrive from the system",
+      "category": [
+        "Performance",
+        "General",
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#remove-onedrive",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/remove-onedrive/meta.json"
+    },
+    {
+      "id": "revert-context-menu",
+      "title": "Revert Context Menu",
+      "description": "Reverts the context menu to the default Windows 10 context menu.",
+      "category": [
+        "General",
+        "Appearance"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#revert-context-menu",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/revert-context-menu/meta.json"
+    },
+    {
+      "id": "set-powershell7-default",
+      "title": "Set PowerShell 7 as Default",
+      "description": "Sets PowerShell 7 as the default profile in Windows Terminal (installs PS7 if missing)",
+      "category": [
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#set-powershell7-default",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/set-powershell7-default/meta.json"
+    },
+    {
+      "id": "set-services-to-manual",
+      "title": "Set Services to Manual",
+      "description": "Sets various Windows services to Manual startup type to improve performance.",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "updatedversion": "2.21.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#set-services-to-manual",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/set-services-to-manual/meta.json"
+    },
+    {
+      "id": "set-win32-priority-separation",
+      "title": "Set Win32 Priority Separation",
+      "description": "Optimizes foreground app performance by modifying system process priority behavior.",
+      "category": [
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#set-win32-priority-separation",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/set-win32-priority-separation/meta.json"
+    },
+    {
+      "id": "show-seconds-in-taskbar-clock",
+      "title": "Show Seconds in Taskbar Clock",
+      "description": "Enables the seconds next to the clock in the taskbar",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#show-seconds-in-taskbar-clock",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/show-seconds-in-system-clock/meta.json"
+    },
+    {
+      "id": "ultimate-performance-plan",
+      "title": "Ultimate Performance Power Plan",
+      "description": "Enables And Applies The Windows Ultimate Powerplan for better performance",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#ultimate-performance-plan",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/ultimate-performance-plan/meta.json"
+    },
+    {
+      "id": "wpbt",
+      "title": "Disable Windows Platform Binary Table",
+      "description": "Prevents your computer vendor from executing programs at boot, reducing potential security risks.",
+      "category": [
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "addedversion": "2.14.1",
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#wpbt",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/wpbt/meta.json"
+    },
+    {
+      "id": "disable-mpo",
+      "title": "Disable Multiplane Overlay (MPO)",
+      "description": "Disables Windows Desktop Window Manager MPO to fix flickering, black screens, and micro-stutters on NVIDIA and AMD GPUs.",
+      "category": [
+        "Performance",
+        "Gaming",
+        "GPU"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-mpo",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-mpo/meta.json"
+    },
+    {
+      "id": "disable-usb-selective-suspend",
+      "title": "Disable USB Selective Suspend",
+      "description": "Prevents Windows from suspending USB ports and wireless dongles, eliminating wake-up lag on mice and keyboards.",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-usb-selective-suspend",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-usb-selective-suspend/meta.json"
+    },
+    {
+      "id": "disable-delivery-optimization",
+      "title": "Disable Delivery Optimization (P2P Updates)",
+      "description": "Stops Windows from using your upload bandwidth to distribute Windows Updates to other PCs on the internet.",
+      "category": [
+        "Network",
+        "Performance",
+        "Privacy"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-delivery-optimization",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-delivery-optimization/meta.json"
+    },
+    {
+      "id": "disable-fast-startup",
+      "title": "Disable Fast Startup",
+      "description": "Ensures clean driver, GPU, and network initialization on shutdown/boot instead of hybrid hibernation.",
+      "category": [
+        "System",
+        "Performance"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-fast-startup",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-fast-startup/meta.json"
+    },
+    {
+      "id": "disable-reserved-storage",
+      "title": "Disable Reserved Storage",
+      "description": "Reclaims the 7-10 GB of disk space permanently reserved by Windows for updates and temporary files.",
+      "category": [
+        "System",
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-reserved-storage",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-reserved-storage/meta.json"
+    },
+    {
+      "id": "disable-sysmain",
+      "title": "Disable SysMain (Superfetch)",
+      "description": "Stops and disables the SysMain service to reduce background disk activity and free RAM on SSD/NVMe systems.",
+      "category": [
+        "Performance",
+        "System"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-sysmain",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-sysmain/meta.json"
+    },
+    {
+      "id": "disable-memory-compression",
+      "title": "Disable Memory Compression",
+      "description": "Stops Windows from compressing idle memory pages in the background, reducing CPU overhead during gaming.",
+      "category": [
+        "Performance",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-memory-compression",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-memory-compression/meta.json"
+    },
+    {
+      "id": "optimize-ntfs",
+      "title": "Optimize NTFS Filesystem",
+      "description": "Disables NTFS 8.3 short name creation and last-access timestamps to speed up disk access.",
+      "category": [
+        "Performance",
+        "System"
+      ],
+      "recommended": true,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-ntfs",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-ntfs/meta.json"
+    },
+    {
+      "id": "optimize-visual-effects",
+      "title": "Optimize Windows Visual Effects",
+      "description": "Disables heavy window animations and shadows while keeping crisp font smoothing.",
+      "category": [
+        "Performance",
+        "Appearance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#optimize-visual-effects",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/optimize-visual-effects/meta.json"
+    },
+    {
+      "id": "keyboard-repeat-rate",
+      "title": "Maximize Keyboard Repeat Rate",
+      "description": "Sets keyboard repeat delay to minimum and repeat speed to maximum allowed by Windows.",
+      "category": [
+        "Gaming",
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#keyboard-repeat-rate",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/keyboard-repeat-rate/meta.json"
+    },
+    {
+      "id": "prefer-ipv4-over-ipv6",
+      "title": "Prefer IPv4 over IPv6",
+      "description": "Makes Windows prefer IPv4 connections first without disabling IPv6, preventing handshake delays on IPv4-only networks.",
+      "category": [
+        "Network",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#prefer-ipv4-over-ipv6",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/prefer-ipv4-over-ipv6/meta.json"
+    },
+    {
+      "id": "disable-teredo",
+      "title": "Disable Teredo IPv6 Tunneling",
+      "description": "Disables legacy Teredo IPv6 tunneling that can add network latency on some routers.",
+      "category": [
+        "Network",
+        "Gaming"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-teredo",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-teredo/meta.json"
+    },
+    {
+      "id": "disable-lockscreen-blur",
+      "title": "Disable Lock Screen Blur",
+      "description": "Removes the acrylic blur effect on the login/lock screen for faster responsiveness.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-lockscreen-blur",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-lockscreen-blur/meta.json"
+    },
+    {
+      "id": "enable-long-paths",
+      "title": "Enable Long Paths (>260 Characters)",
+      "description": "Removes the legacy 260-character path limit for deeply nested folders and files.",
+      "category": [
+        "Appearance",
+        "General",
+        "System"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-long-paths",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-long-paths/meta.json"
+    },
+    {
+      "id": "show-hidden-files",
+      "title": "Show Hidden Files and Folders",
+      "description": "Reveals hidden files and folders in Windows File Explorer.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#show-hidden-files",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/show-hidden-files/meta.json"
+    },
+    {
+      "id": "show-file-extensions",
+      "title": "Show File Extensions",
+      "description": "Displays real file extensions (.exe, .bat, .jpg, etc.) in File Explorer.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#show-file-extensions",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/show-file-extensions/meta.json"
+    },
+    {
+      "id": "revert-start-menu-layout",
+      "title": "Revert Start Menu Layout & Hide Recommendations",
+      "description": "Hides suggested/recommended files and apps and simplifies the Windows 11 Start Menu layout.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#revert-start-menu-layout",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/revert-start-menu-layout/meta.json"
+    },
+    {
+      "id": "disable-store-search-suggestions",
+      "title": "Disable Store Search Suggestions",
+      "description": "Prevents Windows Search and Start Menu from suggesting Microsoft Store apps.",
+      "category": [
+        "Appearance",
+        "Privacy"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-store-search-suggestions",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-store-search-suggestions/meta.json"
+    },
+    {
+      "id": "remove-explorer-home-and-gallery",
+      "title": "Open Explorer to 'This PC' & Hide Gallery",
+      "description": "Opens File Explorer directly to 'This PC' and hides the Gallery section from the sidebar.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#remove-explorer-home-and-gallery",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/remove-explorer-home-and-gallery/meta.json"
+    },
+    {
+      "id": "enable-numlock-on-startup",
+      "title": "Enable Num Lock on Startup",
+      "description": "Automatically enables Num Lock at system boot and on the sign-in screen.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-numlock-on-startup",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-numlock-on-startup/meta.json"
+    },
+    {
+      "id": "disable-lockscreen",
+      "title": "Disable Lock Screen",
+      "description": "Skips the lock screen wallpaper and goes straight to the sign-in password/PIN prompt.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-lockscreen",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-lockscreen/meta.json"
+    },
+    {
+      "id": "enable-legacy-photo-viewer",
+      "title": "Restore Classic Windows Photo Viewer",
+      "description": "Restores the fast, classic Windows 7 Photo Viewer as an option for opening images.",
+      "category": [
+        "Appearance",
+        "General"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#enable-legacy-photo-viewer",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/enable-legacy-photo-viewer/meta.json"
+    },
+    {
+      "id": "disable-xbox-services",
+      "title": "Disable Xbox Services",
+      "description": "Disables Xbox background services (XblAuthManager, XblGameSave, XboxGipSvc, XboxNetApiSvc) to save RAM without uninstalling apps.",
+      "category": [
+        "Gaming",
+        "Performance"
+      ],
+      "recommended": false,
+      "reversible": true,
+      "docsurl": "https://github.com/VictorSallesBz/AGB/blob/main/README.md#disable-xbox-services",
+      "source": "https://github.com/VictorSallesBz/AGB/blob/main/tweaks/disable-xbox-services/meta.json"
+    }
+  ]
+}

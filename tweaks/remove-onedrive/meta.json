@@ -1,0 +1,10 @@
+{
+  "title": "Remove OneDrive",
+  "name": "remove-onedrive",
+  "risk": "caution",
+  "category": ["Performance", "General", "Privacy"],
+  "warning": "Do NOT use if your Desktop, Documents, or Pictures are synced and stored exclusively in OneDrive cloud.",
+  "description": "Removes OneDrive from the system",
+  "deepDescription": "Uses registry, file system, and process commands to uninstall OneDrive, clean leftovers, and restore defaults—freeing RAM, CPU, and I/O by eliminating its background sync and startup tasks.",
+  "modal": "**When to use:** When you do not use Microsoft OneDrive cloud sync and want to stop its background sync/startup usage.\n\n**When NOT to use:** If you rely on OneDrive to keep Desktop/Documents synced across PCs. Files will be moved back to your local user profile folder."
+}

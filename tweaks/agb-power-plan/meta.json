@@ -1,0 +1,10 @@
+{
+  "title": "AGB Ultimate Gaming Power Plan",
+  "name": "agb-power-plan",
+  "risk": "safe",
+  "description": "Custom power plan disabling Core Parking, allowing full 100% Turbo/Precision Boost with 5% idle scaling, and disabling PCIe link power management for maximum gaming FPS stability.",
+  "deepDescription": "Applies an optimized power scheme: disables CPU Core Parking (0cc5b647-c1df-4596-9299-d7a6a057d115 = 100%), sets minimum/maximum CPU frequency state to 100%, and disables PCI Express Link State Power Management to eliminate micro-stutters and improve 1% low FPS.",
+  "recommended": true,
+  "top": true,
+  "category": ["Performance", "Gaming"]
+}

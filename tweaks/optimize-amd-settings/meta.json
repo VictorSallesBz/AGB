@@ -1,0 +1,10 @@
+{
+  "title": "Optimize AMD Settings",
+  "name": "optimize-amd-settings",
+  "risk": "safe",
+  "modal": "This tweak optimizes AMD Radeon registry settings: disables ULPS to prevent clock drops and micro-stutters, enables AMD Shader Cache, configures Flip Queue Size for lower input lag, and increases TDR Delay.",
+  "reversible": true,
+  "deepDescription": "Applies the following optimizations for AMD Radeon GPUs:\n\n- Disable ULPS (Ultra Low Power State) → Prevents GPU sleep lag and micro-stutters\n- Disable ULPS NA → Disables deep sleep on non-active adapters\n- Force Shader Cache (KMD_EnableShaderCache = 1) → Eliminates in-game shader compilation lag\n- Flip Queue Size → 1 (Reduces input lag and frame queuing delay)\n- TDR Delay → 8s (Prevents premature driver timeout crashes during heavy load)",
+  "category": ["Performance", "GPU", "Gaming"],
+  "description": "Optimizes AMD Radeon registry and driver settings to improve gaming performance and reduce stutters"
+}

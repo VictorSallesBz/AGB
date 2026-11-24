@@ -1,0 +1,13 @@
+{
+  "title": "Disable Reserved Storage",
+  "name": "disable-reserved-storage",
+  "category": [
+    "System",
+    "Performance"
+  ],
+  "recommended": false,
+  "reversible": true,
+  "risk": "safe",
+  "warning": "Recommended for SSDs where you want to reclaim 7-10 GB reserved by Windows.",
+  "description": "Reclaims the 7-10 GB of disk space permanently reserved by Windows for updates and temporary files."
+}

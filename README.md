@@ -200,6 +200,10 @@ Permite testar e aplicar servidores DNS diretamente nos adaptadores de rede ativ
 - **Bugs e Sugestões:** Área e modal dedicados para abrir [**Issues no GitHub**](https://github.com/VictorSallesBz/AGB/issues/new/choose) (Reportar Bug ou Solicitar Funcionalidade/Ajuste).
 - **Comunidade:** Entre no [**Discord Oficial do AGB**](https://discord.gg/b3HekDzKGS) para tirar dúvidas e conversar com outros usuários.
 
+![Modal Apoiar o AGB — PIX e Ko-fi](images/screenshots/11-apoiar.png)
+
+![Modal Bugs e Sugestões via GitHub](images/screenshots/12-feedback.png)
+
 ---
 
 ## 📑 Índice Rápido dos 66 Ajustes

@@ -174,7 +174,7 @@ function Settings() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <h3 className="text-sm font-semibold text-agb-text mb-0.5">
-                      AGB Optimizer
+                      AGB — Advanced Gaming Booster
                     </h3>
                     <p className="text-xs text-agb-text-secondary">
                       {language === "pt" ? "Verificar atualizações do aplicativo no GitHub" : "Check for application updates on GitHub"}

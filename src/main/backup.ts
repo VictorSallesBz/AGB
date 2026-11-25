@@ -9,9 +9,10 @@ console.error = log.error
 console.warn = log.warn
 
 function runPowerShell(cmd: string): Promise<string> {
+  const utf8Cmd = `[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $OutputEncoding = [System.Text.Encoding]::UTF8; ${cmd}`
   return new Promise((resolve, reject) => {
     exec(
-      `powershell -NoProfile -ExecutionPolicy Bypass -Command "${cmd}"`,
+      `powershell -NoProfile -ExecutionPolicy Bypass -Command "${utf8Cmd}"`,
       { windowsHide: true },
       (err, stdout, stderr) => {
         if (err) return reject(stderr || err.message)
@@ -22,7 +23,8 @@ function runPowerShell(cmd: string): Promise<string> {
 }
 
 function runPowerShellEncoded(script: string): Promise<string> {
-  const base64 = Buffer.from(script, "utf16le").toString("base64")
+  const utf8Script = `[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $OutputEncoding = [System.Text.Encoding]::UTF8;\n${script}`
+  const base64 = Buffer.from(utf8Script, "utf16le").toString("base64")
   return new Promise((resolve, reject) => {
     exec(
       `powershell.exe -NoProfile -ExecutionPolicy Bypass -EncodedCommand ${base64}`,

@@ -120,31 +120,37 @@ export function DonateContent() {
       </div>
 
       {/* Ko-fi (Internacional / PayPal / Cartão) */}
-      <div className="p-4 rounded-xl bg-agb-bg border border-agb-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => window.open(KOFI_URL, "_blank")}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            window.open(KOFI_URL, "_blank")
+          }
+        }}
+        className="p-4 rounded-xl bg-agb-bg border border-agb-border hover:border-sky-500/50 hover:bg-sky-500/5 transition-all cursor-pointer group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+      >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 group-hover:bg-sky-500/25 transition-colors flex items-center justify-center shrink-0">
             <Coffee className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-agb-text">
+            <h4 className="text-sm font-semibold text-agb-text group-hover:text-sky-300 transition-colors">
               {isPt ? "Ko-fi (PayPal / Cartão / Internacional)" : "Ko-fi (PayPal / Card / International)"}
             </h4>
             <p className="text-xs text-agb-text-secondary">
               {isPt
-                ? "Apoie com qualquer valor via PayPal ou cartão pela página oficial no Ko-fi."
-                : "Support with any amount via PayPal or card on the official Ko-fi page."}
+                ? "Clique aqui para apoiar com qualquer valor via PayPal ou cartão no Ko-fi."
+                : "Click anywhere to support with any amount via PayPal or card on Ko-fi."}
             </p>
           </div>
         </div>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={() => window.open(KOFI_URL, "_blank")}
-          className="shrink-0 flex items-center gap-1.5 text-xs border-sky-500/40 hover:border-sky-400"
-        >
+        <div className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-agb-card border border-sky-500/40 group-hover:border-sky-400 group-hover:bg-sky-500/15 text-agb-text transition-all">
           <ExternalLink className="w-3.5 h-3.5 text-sky-400" />
           <span>{isPt ? "Apoiar no Ko-fi" : "Support on Ko-fi"}</span>
-        </Button>
+        </div>
       </div>
     </div>
   )

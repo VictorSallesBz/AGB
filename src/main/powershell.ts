@@ -34,8 +34,9 @@ export async function executePowerShell(
   try {
     await fsp.writeFile(tempFile, "\ufeff" + script, "utf8")
 
+    const psCommand = `[Console]::InputEncoding = [System.Text.Encoding]::UTF8; [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $OutputEncoding = [System.Text.Encoding]::UTF8; & '${tempFile.replace(/'/g, "''")}'`
     const { stdout, stderr } = await execPromise(
-      `powershell.exe -NoProfile -ExecutionPolicy Bypass -File "${tempFile}"`,
+      `powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "${psCommand}"`,
     )
 
     if (stderr) {
@@ -81,12 +82,13 @@ export function executePowerShellStreaming(
 
     let fullOutput = ""
 
+    const psCommand = `[Console]::InputEncoding = [System.Text.Encoding]::UTF8; [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $OutputEncoding = [System.Text.Encoding]::UTF8; & '${tempFile.replace(/'/g, "''")}'`
     const child = spawn("powershell.exe", [
       "-NoProfile",
       "-ExecutionPolicy",
       "Bypass",
-      "-File",
-      tempFile,
+      "-Command",
+      psCommand,
     ])
 
     child.stdout?.on("data", (data: Buffer) => {

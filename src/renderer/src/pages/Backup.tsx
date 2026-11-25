@@ -189,7 +189,7 @@ function RestorePointsTab() {
     <>
       <div className="h-full max-w-full space-y-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="relative w-full md:w-80">
+          <div className="relative w-full md:w-96">
             <LargeInput
               placeholder={t("searchRestorePointsPlaceholder")}
               value={searchQuery}

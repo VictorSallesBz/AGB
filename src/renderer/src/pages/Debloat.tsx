@@ -452,7 +452,7 @@ function Debloat() {
           </Modal>
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
-            <div className="relative w-full md:w-80">
+            <div className="relative w-full md:w-96">
               <LargeInput
                 placeholder={t("searchAppsPlaceholder")}
                 className="w-full"
@@ -597,7 +597,7 @@ function Debloat() {
       {activeTab === "startup" && (
         <>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
-            <div className="relative w-full md:w-80">
+            <div className="relative w-full md:w-96">
               <LargeInput
                 placeholder={t("searchStartupPlaceholder")}
                 className="w-full"

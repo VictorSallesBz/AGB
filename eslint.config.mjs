@@ -5,7 +5,7 @@ import eslintPluginReactHooks from "eslint-plugin-react-hooks"
 import eslintPluginReactRefresh from "eslint-plugin-react-refresh"
 
 export default [
-  { ignores: ["**/node_modules", "**/dist", "**/out", "docs/**"] },
+  { ignores: ["**/node_modules", "**/dist", "**/out", "**/.vscode", "docs/**"] },
   eslint,
   eslintPluginReact.configs.flat.recommended,
   eslintPluginReact.configs.flat["jsx-runtime"],

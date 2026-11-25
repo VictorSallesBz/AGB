@@ -83,6 +83,8 @@ pnpm run dev
 
 ### 1. Painel (Home) e Perfis Rápidos
 
+![Painel do AGB](images/screenshots/01-painel.png)
+
 O Painel centraliza a visão geral da sua máquina e oferece otimização rápida em um clique:
 - **Telemetria em Tempo Real:** Exibe modelo de CPU, uso de memória RAM, GPU instalada, armazenamento principal, versão do Windows e contagem de ajustes ativos no momento.
 - **Game Booster Ativo:** Alternador rápido dedicado a sessões de jogo que otimiza o plano de energia, prioridades e reduz interferências durante partidas.
@@ -92,7 +94,11 @@ O Painel centraliza a visão geral da sua máquina e oferece otimização rápid
   - **Perfil Agressivo (29 ajustes no perfil / 28 aplicados conforme sua GPU):** Focado em máximo FPS e latência mínima. Detecta automaticamente se sua placa de vídeo é **NVIDIA** ou **AMD** e aplica exclusivamente a otimização correspondente (`optimize-nvidia-settings` ou `optimize-amd-settings`).
 - **Botão "Ver ajustes" do Perfil:** Abre o modal detalhando todos os ajustes do perfil, se cada um já está **Ativo** ou **Desativado**, um botão **Manual** individual (que leva direto para a seção correspondente neste README) e o botão para aplicar todo o perfil com um clique.
 
+![Detalhes dos Ajustes do Perfil](images/screenshots/02-perfil-detalhes.png)
+
 ### 2. Ajustes (Tweaks)
+
+![Aba Ajustes do AGB](images/screenshots/03-ajustes.png)
 
 Lista todos os **66 ajustes** disponíveis no AGB com controle total:
 - **Barra de Busca:** Filtra instantaneamente por nome, palavra-chave ou descrição.
@@ -101,13 +107,21 @@ Lista todos os **66 ajustes** disponíveis no AGB com controle total:
 - **Exportar / Importar Perfis (`.json`):** Salve sua seleção pessoal de ajustes em um arquivo `.json` para fazer backup ou compartilhar com amigos e outros PCs.
 - **Botão `Manual` e Botão `Scripts`:** Em cada cartão, clique em **Manual** para abrir este documento exatamente na explicação do ajuste, ou no ícone de código (**Scripts**) para inspecionar os códigos exatos `apply.ps1` e `unapply.ps1` antes de executar.
 
+![Visualização transparente de scripts PowerShell](images/screenshots/04-ajustes-scripts.png)
+
 ### 3. Aplicativos (Debloat e Inicialização)
 
 Dividida em duas ferramentas essenciais:
-- **Desinstalação de Apps (Debloater):** Lista aplicativos pré-instalados do Windows (UWP/Microsoft Store) com opção de selecionar vários de uma vez e desinstalar com segurança para liberar espaço e processos em segundo plano.
-- **Aplicativos na Inicialização (Startup Apps):** Lista programas configurados para iniciar junto com o Windows, permitindo ativar ou desativar entradas sem precisar abrir o Gerenciador de Tarefas.
+- **Aplicativos Instalados (Desinstalador / Debloat):** Lista aplicativos instalados e pacotes do Windows com opção de selecionar vários de uma vez e desinstalar em lote.
+- **Inicialização do Windows (Startup Apps):** Lista programas configurados para iniciar junto com o Windows, permitindo ativar ou desativar entradas com um clique para acelerar o boot.
+
+![Aplicativos Instalados](images/screenshots/05a-aplicativos-instalados.png)
+
+![Aplicativos na Inicialização do Windows](images/screenshots/05b-aplicativos-inicializacao.png)
 
 ### 4. Utilitários (16 Ferramentas)
+
+![Utilitários do Sistema](images/screenshots/06-utilitarios.png)
 
 Atalhos rápidos e automações do sistema agrupados em um só lugar:
 
@@ -132,6 +146,8 @@ Atalhos rápidos e automações do sistema agrupados em um só lugar:
 
 ### 5. Limpeza do Sistema (9 Módulos)
 
+![Limpeza do Sistema](images/screenshots/07-limpeza.png)
+
 Permite analisar e limpar arquivos desnecessários com segurança, além de incluir atalho para o **Sensor de Armazenamento (Storage Sense)** no Windows 11:
 
 | Módulo de Limpeza | O que remove |
@@ -149,14 +165,20 @@ Permite analisar e limpar arquivos desnecessários com segurança, além de incl
 ### 6. Restauração e Backup
 
 Central de segurança do usuário:
-- **Pontos de Restauração do Windows (VSS):** Crie pontos nomeados a qualquer instante, visualize pontos existentes e restaure o sistema caso precise voltar atrás.
-- **Histórico / Reversão de Ajustes do AGB:** Veja quais otimizações foram aplicadas pelo aplicativo e reverta ajustes individuais ou todos de uma vez usando os scripts `unapply.ps1`.
+- **Pontos de Restauração do Windows (VSS):** Crie pontos nomeados ou rápidos a qualquer instante, visualize pontos existentes e restaure o sistema caso precise voltar atrás.
+- **Reverter Ajustes Aplicados:** Veja todos os ajustes ativos detectados pelo AGB e desfaça individualmente ou todos de uma vez com um clique.
+
+![Pontos de Restauração do Windows](images/screenshots/08a-restauracao-pontos.png)
+
+![Reverter Ajustes Aplicados](images/screenshots/08b-restauracao-reverter.png)
 
 ### 7. Gerenciador e Benchmark de DNS
 
+![Gerenciador e Benchmark de DNS](images/screenshots/09-dns.png)
+
 Permite testar e aplicar servidores DNS diretamente nos adaptadores de rede ativos:
 - **Teste de Ping em Tempo Real:** Mede a latência atual para o provedor escolhido ou IP customizado.
-- **Benchmark Completo (Testar Todos):** Compara todos os provedores suportados automaticamente e destaca o mais rápido para a sua operadora/região.
+- **Benchmark Completo (Testar Latência):** Compara todos os provedores suportados automaticamente e destaca o mais rápido para a sua operadora/região.
 - **Limpar Cache DNS (Flush DNS):** Executa `ipconfig /flushdns` rapidamente para resolver rotas desatualizadas.
 - **Provedores Suportados:**
   - **Cloudflare:** DNS ultra rápido, seguro e totalmente focado na privacidade do usuário. _(Rápido, Foco em Privacidade, Seguro)_
@@ -171,9 +193,11 @@ Permite testar e aplicar servidores DNS diretamente nos adaptadores de rede ativ
 
 ### 8. Configurações, Apoio e Reporte de Bugs
 
-- **Personalização & Comportamento:** Escolha entre temas visuais (*Obsidian*, *Emerald Pulse*, *Midnight*, *Cyber Violet*), alterne idioma (**PT-BR** / **English**), ative/desative atualizações automáticas, configure minimização na bandeja do sistema e limpe logs/caches antigos do app.
+![Configurações, Apoio e Reporte de Bugs](images/screenshots/10-configuracoes.png)
+
+- **Personalização & Comportamento:** Escolha entre temas visuais (*Sistema*, *Escuro*, *Claro*), alterne idioma (**PT-BR** / **English**), verifique atualizações no GitHub, configure minimização na bandeja do sistema e limpe backups/caches antigos do app.
 - **Apoiar o AGB:** Se o AGB ajudou a melhorar seu PC, você pode contribuir via **PIX** (QR Code / Copia e Cola integrado no app) ou [**Ko-fi**](https://ko-fi.com/victorsalles).
-- **Bugs e Sugestões:** Botão dedicado na barra lateral e em Configurações para abrir [**Issues no GitHub**](https://github.com/VictorSallesBz/AGB/issues/new/choose) (Reportar Bug ou Solicitar Nova Funcionalidade/Ajuste).
+- **Bugs e Sugestões:** Área e modal dedicados para abrir [**Issues no GitHub**](https://github.com/VictorSallesBz/AGB/issues/new/choose) (Reportar Bug ou Solicitar Funcionalidade/Ajuste).
 - **Comunidade:** Entre no [**Discord Oficial do AGB**](https://discord.gg/b3HekDzKGS) para tirar dúvidas e conversar com outros usuários.
 
 ---

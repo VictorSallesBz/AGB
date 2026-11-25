@@ -100,7 +100,9 @@
       "buildResources": "build"
     },
     "files": [
+      "!**/.vscode",
       "!**/.vscode/*",
+      "!LISTA_PRINTS.md",
       "!src/*",
       "!dist-old",
       "!dist-2",

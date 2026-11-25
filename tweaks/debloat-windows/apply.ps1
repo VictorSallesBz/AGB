@@ -1,4 +1,4 @@
-﻿# AGB Debloat Script
+# AGB Debloat Script
 # This script allows the user to select which built-in apps and bloatware to remove
 # Made for AGB
 
@@ -183,46 +183,75 @@ function Show-AppSelectionDialog {
     [xml]$xaml = @"
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="AGB Debloat — Despoluir o Windows" 
-    Height="750" Width="650" 
+    Title="AGB — Despoluir o Windows (Debloat)"
+    Height="760" Width="700"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    AllowsTransparency="True"
     ResizeMode="NoResize"
-    Background="#0c121f">
+    Background="Transparent">
     <Window.Resources>
         <Style TargetType="CheckBox">
-            <Setter Property="Foreground" Value="#f0f4f8"/>
+            <Setter Property="Foreground" Value="#e2e8f0"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="Padding" Value="10,6"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#3b82f6"/>
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border x:Name="RowBorder" Background="Transparent" CornerRadius="8" Padding="8,6" Margin="2,1">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Border x:Name="CheckBoxRect" Width="18" Height="18" CornerRadius="5"
+                                        Background="#171726" BorderBrush="#33334d" BorderThickness="1.5"
+                                        VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <TextBlock x:Name="CheckMark" Text="&#x2713;" FontSize="12" FontWeight="Bold"
+                                               Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Visibility="Collapsed"/>
+                                </Border>
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="RowBorder" Property="Background" Value="#1a1a2b"/>
+                                <Setter TargetName="CheckBoxRect" Property="BorderBrush" Value="#6366f1"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckBoxRect" Property="Background" Value="#6366f1"/>
+                                <Setter TargetName="CheckBoxRect" Property="BorderBrush" Value="#818cf8"/>
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="RowBorder" Property="Background" Value="#16162a"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#3b82f6"/>
+            <Setter Property="Background" Value="#6366f1"/>
             <Setter Property="Foreground" Value="#ffffff"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="Padding" Value="16,9"/>
             <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
+                        <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="6"
+                                CornerRadius="8"
                                 Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#2563eb"/>
+                                <Setter Property="Background" Value="#4f46e5"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="#1d4ed8"/>
+                                <Setter Property="Background" Value="#4338ca"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -230,23 +259,72 @@ function Show-AppSelectionDialog {
             </Setter>
         </Style>
         <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="Background" Value="#1e293b"/>
-            <Setter Property="Foreground" Value="#f0f4f8"/>
-            <Setter Property="BorderBrush" Value="#334155"/>
+            <Setter Property="Background" Value="#171726"/>
+            <Setter Property="Foreground" Value="#cbd5e1"/>
+            <Setter Property="BorderBrush" Value="#2a2a3d"/>
             <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontWeight" Value="Medium"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
+                        <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="6"
+                                CornerRadius="8"
                                 Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#334155"/>
+                                <Setter Property="Background" Value="#222236"/>
+                                <Setter Property="BorderBrush" Value="#3f3f5e"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RecommendedButton" TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+            <Setter Property="Background" Value="#1e1b4b"/>
+            <Setter Property="Foreground" Value="#a5b4fc"/>
+            <Setter Property="BorderBrush" Value="#4338ca"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2a2666"/>
+                                <Setter Property="BorderBrush" Value="#6366f1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CloseButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#94a3b8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#ef4444"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -254,123 +332,204 @@ function Show-AppSelectionDialog {
             </Setter>
         </Style>
     </Window.Resources>
-    
-    <Grid Margin="24">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        
-        <TextBlock Grid.Row="0" 
-                   Text="Selecione os aplicativos para desinstalar" 
-                   FontSize="18" 
-                   FontWeight="SemiBold" 
-                   Foreground="#f0f4f8"
-                   Margin="0,0,0,6"/>
-        
-        <TextBlock Grid.Row="1" 
-                   Text="Marque os aplicativos que você deseja remover. Os itens desmarcados permanecerão no sistema." 
-                   FontSize="13" 
-                   Foreground="#94a3b8"
-                   TextWrapping="Wrap"
-                   Margin="0,0,0,14"/>
 
-        <Border Grid.Row="2" 
-                Background="#111827" 
-                BorderBrush="#1e293b" 
-                BorderThickness="1" 
-                CornerRadius="8"
-                Margin="0,0,0,14">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ItemsControl x:Name="AppsList" Margin="12">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <CheckBox Content="{Binding Name}" 
-                                     IsChecked="{Binding IsChecked}" 
-                                     Margin="4,3"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-        </Border>
-        
-        <StackPanel Grid.Row="3" 
-                    Orientation="Horizontal" 
-                    Margin="0,0,0,14">
-            <Button x:Name="BtnSelectAll" 
-                    Content="Selecionar Todos" 
-                    Width="130" 
-                    Margin="0,0,10,0"
-                    Style="{StaticResource SecondaryButton}"/>
-            <Button x:Name="BtnDeselectAll" 
-                    Content="Desmarcar Todos" 
-                    Width="130" 
-                    Margin="0,0,10,0"
-                    Style="{StaticResource SecondaryButton}"/>
-            <Button x:Name="BtnSelectRecommended" 
-                    Content="Selecionar Recomendados" 
-                    Width="180"
-                    Background="#1e293b"
-                    Foreground="#38bdf8"/>
-        </StackPanel>
-        
-        <StackPanel Grid.Row="4" 
-                    Orientation="Horizontal" 
-                    HorizontalAlignment="Right">
-            <Button x:Name="BtnOK" Content="Desinstalar Selecionados" Width="180" Margin="0,0,12,0" IsDefault="True"/>
-            <Button x:Name="BtnCancel" Content="Cancelar" Width="100" Style="{StaticResource SecondaryButton}" IsCancel="True"/>
-        </StackPanel>
-    </Grid>
+    <Border CornerRadius="14" Background="#0b0b12" BorderBrush="#252538" BorderThickness="1.5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Custom AGB Header Bar -->
+            <Border x:Name="HeaderBar" Grid.Row="0" Background="#12121e" CornerRadius="13,13,0,0"
+                    BorderBrush="#252538" BorderThickness="0,0,0,1" Padding="16,0">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Border Background="#6366f1" CornerRadius="6" Padding="8,3" Margin="0,0,10,0">
+                            <TextBlock Text="AGB" Foreground="#ffffff" FontSize="11" FontWeight="Bold"/>
+                        </Border>
+                        <TextBlock Text="Despoluir o Windows (Debloat)" Foreground="#f8fafc" FontSize="13.5" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Button x:Name="BtnClose" Content="&#x2715;" FontSize="13" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CloseButton}"/>
+                </Grid>
+            </Border>
+
+            <!-- Main Content -->
+            <Grid Grid.Row="1" Margin="22,18,22,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Selecione os aplicativos para desinstalar"
+                           FontSize="17"
+                           FontWeight="SemiBold"
+                           Foreground="#f8fafc"
+                           Margin="0,0,0,4"/>
+
+                <TextBlock Grid.Row="1"
+                           Text="Marque os aplicativos que você deseja remover. Os itens desmarcados permanecerão no sistema."
+                           FontSize="12.5"
+                           Foreground="#94a3b8"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,14"/>
+
+                <!-- Search Bar + Selected Counter -->
+                <Grid Grid.Row="2" Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="#13131f" BorderBrush="#252538" BorderThickness="1" CornerRadius="8" Padding="12,8" Margin="0,0,12,0">
+                        <Grid>
+                            <TextBlock x:Name="SearchPlaceholder" Text="Pesquisar aplicativo..." Foreground="#64748b" FontSize="13" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                            <TextBox x:Name="SearchBox" Background="Transparent" BorderThickness="0" Foreground="#f8fafc" CaretBrush="#818cf8" FontSize="13" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1" Background="#13131f" BorderBrush="#252538" BorderThickness="1" CornerRadius="8" Padding="12,8" VerticalAlignment="Center">
+                        <TextBlock x:Name="SelectedCountText" Text="0 selecionado(s)" Foreground="#a5b4fc" FontSize="12.5" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    </Border>
+                </Grid>
+
+                <!-- App List -->
+                <Border Grid.Row="3"
+                        Background="#13131f"
+                        BorderBrush="#252538"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        Margin="0,0,0,14">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="AppsList" Margin="8">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox Content="{Binding Name}"
+                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+
+                <!-- Bulk Action Buttons -->
+                <StackPanel Grid.Row="4"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,14">
+                    <Button x:Name="BtnSelectAll"
+                            Content="Selecionar Todos"
+                            Padding="14,8"
+                            Margin="0,0,8,0"
+                            Style="{StaticResource SecondaryButton}"/>
+                    <Button x:Name="BtnDeselectAll"
+                            Content="Desmarcar Todos"
+                            Padding="14,8"
+                            Margin="0,0,8,0"
+                            Style="{StaticResource SecondaryButton}"/>
+                    <Button x:Name="BtnSelectRecommended"
+                            Content="Selecionar Recomendados"
+                            Padding="16,8"
+                            Style="{StaticResource RecommendedButton}"/>
+                </StackPanel>
+
+                <!-- Footer Confirm / Cancel -->
+                <StackPanel Grid.Row="5"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button x:Name="BtnCancel" Content="Cancelar" Width="110" Margin="0,0,10,0" Style="{StaticResource SecondaryButton}" IsCancel="True"/>
+                    <Button x:Name="BtnOK" Content="Desinstalar Selecionados" Width="200" IsDefault="True"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
 "@
 
     $reader = New-Object System.Xml.XmlNodeReader $xaml
     $window = [Windows.Markup.XamlReader]::Load($reader)
-    
+
+    $headerBar = $window.FindName("HeaderBar")
+    $btnClose = $window.FindName("BtnClose")
+    $searchBox = $window.FindName("SearchBox")
+    $searchPlaceholder = $window.FindName("SearchPlaceholder")
+    $selectedCountText = $window.FindName("SelectedCountText")
     $appsList = $window.FindName("AppsList")
     $btnSelectAll = $window.FindName("BtnSelectAll")
     $btnDeselectAll = $window.FindName("BtnDeselectAll")
     $btnSelectRecommended = $window.FindName("BtnSelectRecommended")
     $btnOK = $window.FindName("BtnOK")
     $btnCancel = $window.FindName("BtnCancel")
-    
+
+    $allApps = @()
     $observableApps = New-Object System.Collections.ObjectModel.ObservableCollection[Object]
     foreach ($app in $apps) {
-        $observableApps.Add((New-Object PSObject -Property $app))
+        $obj = New-Object PSObject -Property $app
+        $allApps += $obj
+        $observableApps.Add($obj)
     }
     $appsList.ItemsSource = $observableApps
-    
+
+    function Update-SelectedCount {
+        $count = ($allApps | Where-Object { $_.IsChecked }).Count
+        $selectedCountText.Text = "$count selecionado(s)"
+    }
+
     $script:dialogResult = $null
-    
+
+    $headerBar.Add_MouseLeftButtonDown({ $window.DragMove() })
+
+    $btnClose.Add_Click({
+        $script:dialogResult = $null
+        $window.DialogResult = $false
+        $window.Close()
+    })
+
+    $searchBox.Add_TextChanged({
+        $q = $searchBox.Text.Trim().ToLower()
+        $searchPlaceholder.Visibility = if ([string]::IsNullOrEmpty($searchBox.Text)) { "Visible" } else { "Collapsed" }
+        $observableApps.Clear()
+        foreach ($item in $allApps) {
+            if ([string]::IsNullOrEmpty($q) -or $item.Name.ToLower().Contains($q) -or $item.Package.ToLower().Contains($q)) {
+                $observableApps.Add($item)
+            }
+        }
+    })
+
+    $appsList.AddHandler([System.Windows.Controls.Primitives.ToggleButton]::CheckedEvent, [System.Windows.RoutedEventHandler]{ Update-SelectedCount })
+    $appsList.AddHandler([System.Windows.Controls.Primitives.ToggleButton]::UncheckedEvent, [System.Windows.RoutedEventHandler]{ Update-SelectedCount })
+
     $btnSelectAll.Add_Click({
         foreach ($item in $observableApps) {
             $item.IsChecked = $true
         }
         $appsList.Items.Refresh()
+        Update-SelectedCount
     })
-    
+
     $btnDeselectAll.Add_Click({
         foreach ($item in $observableApps) {
             $item.IsChecked = $false
         }
         $appsList.Items.Refresh()
+        Update-SelectedCount
     })
-    
+
     $btnSelectRecommended.Add_Click({
-        foreach ($item in $observableApps) {
+        foreach ($item in $allApps) {
             if ($recommendedApps -contains $item.Package) {
                 $item.IsChecked = $true
             }
         }
         $appsList.Items.Refresh()
+        Update-SelectedCount
     })
-    
+
     $btnOK.Add_Click({
         $script:dialogResult = @()
-        foreach ($item in $observableApps) {
+        foreach ($item in $allApps) {
             if ($item.IsChecked) {
                 $script:dialogResult += $item.Package
             }
@@ -378,7 +537,7 @@ function Show-AppSelectionDialog {
         $window.DialogResult = $true
         $window.Close()
     })
-    
+
     $btnCancel.Add_Click({
         $script:dialogResult = $null
         $window.DialogResult = $false
@@ -458,66 +617,76 @@ try {
 
     if ($script:appsWereRemoved -and -not (Get-Process -Name "agb" -ErrorAction SilentlyContinue)) {
         [xml]$xaml = @"
-<Window 
+<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="AGB Debloat" 
-    Height="200" 
+    Title="AGB — Despoluir o Windows"
+    Height="220"
     Width="480"
     WindowStartupLocation="CenterScreen"
-    Background="#0c121f"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
     ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#3b82f6"/>
+            <Setter Property="Background" Value="#6366f1"/>
             <Setter Property="Foreground" Value="#ffffff"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="24,10"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="13.5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
+                        <Border Background="{TemplateBinding Background}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="6"
+                                CornerRadius="8"
                                 Padding="{TemplateBinding Padding}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#4f46e5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
-    
-    <Grid Margin="30">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Row="0" VerticalAlignment="Center">
-            <TextBlock Text="Despoluição Concluída" 
-                      FontSize="20"
-                      FontWeight="SemiBold" 
-                      Foreground="#10b981"
-                      HorizontalAlignment="Center"
-                      Margin="0,0,0,10"/>
-            <TextBlock Text="Os aplicativos selecionados foram removidos com sucesso." 
-                      FontSize="14"
-                      Foreground="#94a3b8"
-                      HorizontalAlignment="Center"
-                      TextAlignment="Center"
-                      TextWrapping="Wrap"
-                      Margin="0,0,0,5"/>
-        </StackPanel>
-                  
-        <Button Grid.Row="1" 
-               x:Name="BtnOK" 
-               Content="Concluir" 
-               Width="120"
-               HorizontalAlignment="Center"/>
-    </Grid>
+
+    <Border CornerRadius="14" Background="#0b0b12" BorderBrush="#252538" BorderThickness="1.5">
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock Text="Despoluição Concluída"
+                          FontSize="20"
+                          FontWeight="SemiBold"
+                          Foreground="#10b981"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,10"/>
+                <TextBlock Text="Os aplicativos selecionados foram removidos com sucesso."
+                          FontSize="13.5"
+                          Foreground="#94a3b8"
+                          HorizontalAlignment="Center"
+                          TextAlignment="Center"
+                          TextWrapping="Wrap"
+                          Margin="0,0,0,5"/>
+            </StackPanel>
+
+            <Button Grid.Row="1"
+                   x:Name="BtnOK"
+                   Content="Concluir"
+                   Width="140"
+                   HorizontalAlignment="Center"/>
+        </Grid>
+    </Border>
 </Window>
 "@
 

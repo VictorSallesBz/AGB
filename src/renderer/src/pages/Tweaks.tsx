@@ -649,21 +649,29 @@ function Tweaks() {
                 </div>
               )}
 
-              {(typeof detailsTweak.modal === "string" || detailsTweak.deepDescription) && (
-                <div className="text-agb-text-secondary text-sm leading-6 prose prose-green marker:text-agb-secondary max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {String(
-                      translateTweakModal(
+              {(() => {
+                const rawModal =
+                  language === "pt"
+                    ? translateTweakModal(
+                        detailsTweak.name,
+                        typeof detailsTweak.modal === "string" ? detailsTweak.modal : "",
+                        language,
+                      )
+                    : translateTweakModal(
                         detailsTweak.name,
                         (typeof detailsTweak.modal === "string"
                           ? detailsTweak.modal
                           : detailsTweak.deepDescription) || "",
                         language,
-                      ),
-                    )}
-                  </ReactMarkdown>
-                </div>
-              )}
+                      )
+                const shortDesc = translateTweakDesc(detailsTweak.name, detailsTweak.description || "", language)
+                if (!rawModal || rawModal.trim() === shortDesc.trim()) return null
+                return (
+                  <div className="text-agb-text-secondary text-sm leading-6 prose prose-green marker:text-agb-secondary max-w-none">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{String(rawModal)}</ReactMarkdown>
+                  </div>
+                )
+              })()}
 
               {((detailsTweak as any).psapply || detailsTweak.applyScript) && (
                 <div>

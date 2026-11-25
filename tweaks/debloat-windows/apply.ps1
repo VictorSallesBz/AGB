@@ -1,4 +1,4 @@
-# AGB Debloat Script
+﻿# AGB Debloat Script
 # This script allows the user to select which built-in apps and bloatware to remove
 # Made for AGB
 
@@ -168,16 +168,98 @@ function Get-FriendlyName {
     return $PackageName -replace "MicrosoftCorporationII\.", "" -replace "Microsoft\.", "" -replace "\.", " "
 }
 
-function Show-AppSelectionDialog {
-    $apps = @()
-    foreach ($appDef in $appDefinitions) {
-        $apps += @{ 
-            Name      = $appDef.FriendlyName
-            Package   = $appDef.Package
-            IsChecked = $false
+function Test-AppInstalled {
+    param(
+        [string]$PackagePattern,
+        [array]$InstalledPkgs,
+        [array]$ProvisionedPkgs
+    )
+
+    if ($PackagePattern -eq "Microsoft.OneDrive") {
+        $oneDrivePaths = @(
+            "$env:LOCALAPPDATA\Microsoft\OneDrive\OneDrive.exe",
+            "$env:ProgramFiles\Microsoft OneDrive\OneDrive.exe",
+            "${env:ProgramFiles(x86)}\Microsoft OneDrive\OneDrive.exe"
+        )
+        foreach ($p in $oneDrivePaths) {
+            if ($p -and (Test-Path $p)) { return $true }
         }
     }
-    
+
+    foreach ($pkg in $InstalledPkgs) {
+        if ($pkg.Name -like "*$PackagePattern*" -or $pkg.PackageFamilyName -like "*$PackagePattern*" -or $pkg.PackageFullName -like "*$PackagePattern*") {
+            return $true
+        }
+    }
+
+    foreach ($prov in $ProvisionedPkgs) {
+        if ($prov.DisplayName -like "*$PackagePattern*" -or $prov.PackageName -like "*$PackagePattern*") {
+            return $true
+        }
+    }
+
+    return $false
+}
+
+function Show-AppSelectionDialog {
+    $installedPkgs = @(Get-AppxPackage -AllUsers -ErrorAction SilentlyContinue)
+    if ($installedPkgs.Count -eq 0) {
+        $installedPkgs = @(Get-AppxPackage -ErrorAction SilentlyContinue)
+    }
+    $provisionedPkgs = @()
+    try {
+        $provisionedPkgs = @(Get-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue)
+    } catch {}
+
+    $apps = @()
+    foreach ($appDef in $appDefinitions) {
+        if (Test-AppInstalled -PackagePattern $appDef.Package -InstalledPkgs $installedPkgs -ProvisionedPkgs $provisionedPkgs) {
+            $apps += @{
+                Name      = $appDef.FriendlyName
+                Package   = $appDef.Package
+                IsChecked = $false
+            }
+        }
+    }
+
+    if ($apps.Count -eq 0) {
+        [xml]$emptyXaml = @"
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="AGB — Despoluir o Windows"
+    Height="220" Width="480"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize">
+    <Border CornerRadius="14" Background="#0b0b12" BorderBrush="#252538" BorderThickness="1.5">
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock Text="Sistema já está limpo"
+                          FontSize="19" FontWeight="SemiBold" Foreground="#10b981"
+                          HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <TextBlock Text="Nenhum dos bloatwares desta lista foi encontrado instalado no seu computador."
+                          FontSize="13.5" Foreground="#94a3b8"
+                          HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+            </StackPanel>
+            <Button Grid.Row="1" x:Name="BtnEmptyClose" Content="Fechar" Width="130" HorizontalAlignment="Center"
+                    Background="#6366f1" Foreground="#ffffff" BorderThickness="0" Padding="18,9" FontWeight="SemiBold" Cursor="Hand"/>
+        </Grid>
+    </Border>
+</Window>
+"@
+        $emptyReader = New-Object System.Xml.XmlNodeReader $emptyXaml
+        $emptyWin = [Windows.Markup.XamlReader]::Load($emptyReader)
+        $emptyWin.FindName("BtnEmptyClose").Add_Click({ $emptyWin.Close() })
+        $emptyWin.ShowDialog() | Out-Null
+        return $null
+    }
+
     $apps = $apps | Sort-Object { $_.Name }
     
     [xml]$xaml = @"
@@ -565,25 +647,46 @@ function Remove-SelectedApps {
     $removeNames = $AppsToRemove | ForEach-Object { Get-FriendlyName $_ }
     Write-Host "Aplicativos a serem desinstalados: $($removeNames -join ', ')" -ForegroundColor Yellow
     Write-Host "Total de aplicativos para remover: $($AppsToRemove.Count)" -ForegroundColor Cyan
-    
+
     foreach ($app in $AppsToRemove) {
+        $friendlyName = Get-FriendlyName $app
         try {
-            $friendlyName = Get-FriendlyName $app
             Write-Host "Removendo $friendlyName ($app)..." -ForegroundColor Yellow
 
-            $pkg = Get-AppxPackage -Name *$app* -ErrorAction SilentlyContinue
-            if ($pkg) {
-                $pkg | ForEach-Object {
-                    Remove-AppxPackage -Package $_.PackageFullName -ErrorAction SilentlyContinue
+            if ($app -eq "Microsoft.OneDrive") {
+                Stop-Process -Name "OneDrive" -Force -ErrorAction SilentlyContinue
+                $odSetup = @(
+                    "$env:SystemRoot\System32\OneDriveSetup.exe",
+                    "$env:SystemRoot\SysWOW64\OneDriveSetup.exe"
+                ) | Where-Object { Test-Path $_ } | Select-Object -First 1
+                if ($odSetup) {
+                    Start-Process -FilePath $odSetup -ArgumentList "/uninstall" -Wait -WindowStyle Hidden -ErrorAction SilentlyContinue
                 }
-                Write-Host "Desinstalado: $friendlyName" -ForegroundColor Green
             }
 
-            $prov = Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$app*"
-            if ($prov) {
-                $prov | ForEach-Object {
-                    Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName -ErrorAction SilentlyContinue
+            $pkgs = @(Get-AppxPackage -AllUsers -Name "*$app*" -ErrorAction SilentlyContinue)
+            if ($pkgs.Count -eq 0) {
+                $pkgs = @(Get-AppxPackage -Name "*$app*" -ErrorAction SilentlyContinue)
+            }
+            foreach ($p in $pkgs) {
+                try {
+                    Remove-AppxPackage -Package $p.PackageFullName -AllUsers -ErrorAction Stop
+                } catch {
+                    Remove-AppxPackage -Package $p.PackageFullName -ErrorAction SilentlyContinue
                 }
+            }
+
+            $provs = @(Get-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -like "*$app*" -or $_.PackageName -like "*$app*" })
+            foreach ($pr in $provs) {
+                Remove-AppxProvisionedPackage -Online -PackageName $pr.PackageName -ErrorAction SilentlyContinue | Out-Null
+            }
+
+            # Verify removal
+            $remaining = @(Get-AppxPackage -Name "*$app*" -ErrorAction SilentlyContinue)
+            if ($remaining.Count -eq 0) {
+                Write-Host "Desinstalado e verificado: $friendlyName" -ForegroundColor Green
+            } else {
+                Write-Host "Aviso: $friendlyName ainda possui pacote protegido pelo sistema ($($remaining[0].PackageFullName))." -ForegroundColor Yellow
             }
         }
         catch {
@@ -591,7 +694,7 @@ function Remove-SelectedApps {
         }
     }
 
-    Write-Host "Despoluição concluída com sucesso!" -ForegroundColor Green
+    Write-Host "Despoluição concluída!" -ForegroundColor Green
 }
 
 try {

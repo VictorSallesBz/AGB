@@ -39,12 +39,15 @@ interface StartupApp {
   id: string
   name: string
   command: string
-  location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon"
+  location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon" | "Service" | "Task"
   locationLabel: string
   enabled: boolean
-  sourceType: "registry" | "folder"
+  sourceType: "registry" | "folder" | "service" | "task"
   filePath?: string
   fileName?: string
+  serviceName?: string
+  taskPath?: string
+  protectedReason?: string
   icon?: string
 }
 
@@ -263,6 +266,14 @@ function Debloat() {
   }, [startupApps, startupSearchTerm, startupSortField, startupSortOrder])
 
   const handleToggleStartup = async (appItem: StartupApp) => {
+    if (appItem.protectedReason) {
+      toast.info(
+        language === "pt"
+          ? `${appItem.name} é protegido (${appItem.protectedReason}) para evitar falhas em jogos.`
+          : `${appItem.name} is protected (${appItem.protectedReason}) to prevent game issues.`,
+      )
+      return
+    }
     setTogglingId(appItem.id)
     const nextEnabled = !appItem.enabled
     try {
@@ -274,6 +285,8 @@ function Debloat() {
           enabled: nextEnabled,
           sourceType: appItem.sourceType,
           fileName: appItem.fileName,
+          serviceName: appItem.serviceName,
+          taskPath: appItem.taskPath,
         },
       })
       if (res?.success) {
@@ -706,18 +719,46 @@ function Debloat() {
                     </TableCell>
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-3">
-                        <span
-                          className={`text-xs font-semibold ${item.enabled ? "text-emerald-400" : "text-agb-muted-foreground"}`}
-                        >
-                          {item.enabled ? t("enabled") : t("disabled")}
-                        </span>
+                        {item.protectedReason ? (
+                          <span
+                            className="text-xs px-2 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 font-medium"
+                            title={
+                              language === "pt"
+                                ? `Protegido (${item.protectedReason})`
+                                : `Protected (${item.protectedReason})`
+                            }
+                          >
+                            {item.protectedReason}
+                          </span>
+                        ) : (
+                          <span
+                            className={`text-xs font-semibold ${item.enabled ? "text-emerald-400" : "text-agb-muted-foreground"}`}
+                          >
+                            {item.sourceType === "service"
+                              ? item.enabled
+                                ? language === "pt"
+                                  ? "Automático"
+                                  : "Automatic"
+                                : "Manual"
+                              : item.enabled
+                                ? t("enabled")
+                                : t("disabled")}
+                          </span>
+                        )}
                         <button
                           type="button"
-                          disabled={togglingId === item.id}
+                          disabled={togglingId === item.id || !!item.protectedReason}
                           onClick={() => handleToggleStartup(item)}
+                          title={
+                            item.protectedReason
+                              ? language === "pt"
+                                ? `Protegido (${item.protectedReason})`
+                                : `Protected (${item.protectedReason})`
+                              : undefined
+                          }
                           className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
                             item.enabled ? "bg-emerald-500" : "bg-agb-muted"
-                          } ${togglingId === item.id ? "opacity-50 cursor-not-allowed" : ""}`}
+                          } ${togglingId === item.id || item.protectedReason ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                           <span
                             className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
@@ -734,8 +775,8 @@ function Debloat() {
           </Table>
           <p className="text-sm text-agb-text-secondary mt-2 pb-8">
             {language === "pt"
-              ? "Gerencie os aplicativos que iniciam automaticamente com o Windows para acelerar o boot."
-              : "Manage apps that start automatically with Windows to boost startup speed."}
+              ? "Gerencie entradas do Registro, pastas Inicializar, Serviços de terceiros (services.msc: Automático ↔ Manual) e Tarefas Agendadas."
+              : "Manage Registry entries, Startup folders, third-party Services (Automatic ↔ Manual), and Scheduled Tasks."}
           </p>
         </>
       )}

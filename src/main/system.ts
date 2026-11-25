@@ -722,12 +722,15 @@ export interface StartupAppItem {
   id: string
   name: string
   command: string
-  location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon"
+  location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon" | "Service" | "Task"
   locationLabel: string
   enabled: boolean
-  sourceType: "registry" | "folder"
+  sourceType: "registry" | "folder" | "service" | "task"
   filePath?: string
   fileName?: string
+  serviceName?: string
+  taskPath?: string
+  protectedReason?: string
   icon?: string
 }
 
@@ -1063,6 +1066,77 @@ if ($commonStartup -and (Test-Path $commonStartup)) {
     }
 }
 
+# 5. Third-Party Services (services.msc) - Auto & Manual
+$winDir = $env:SystemRoot
+Get-CimInstance Win32_Service -ErrorAction SilentlyContinue | Where-Object {
+    $_.PathName -and
+    ($_.StartMode -eq 'Auto' -or $_.StartMode -eq 'Manual')
+} | ForEach-Object {
+    $rawPath = $_.PathName.Trim()
+    $exeClean = $rawPath
+    if ($exeClean -match '^"([^"]+)"') {
+        $exeClean = $matches[1]
+    } else {
+        $exeClean = ($exeClean -split '\s+')[0]
+    }
+
+    $isWindowsCore = $false
+    if ($exeClean -and $winDir) {
+        if ($exeClean -like "$winDir\\System32\\*" -or $exeClean -like "$winDir\\SysWOW64\\*" -or $exeClean -like "$winDir\\servicing\\*" -or $exeClean -like "$winDir\\WinSxS\\*" -or $exeClean -match 'svchost\.exe$') {
+            $isWindowsCore = $true
+        }
+    }
+
+    if (-not $isWindowsCore) {
+        $svcName = $_.Name
+        $dispName = if ($_.DisplayName) { $_.DisplayName } else { $svcName }
+        $isProtected = $null
+        if ($svcName -match '^(vgc|vgk|BEService|EasyAntiCheat|EasyAntiCheat_EOS|FACEITService)$' -or $rawPath -match 'Riot Vanguard|EasyAntiCheat|BattlEye|FACEIT') {
+            $isProtected = "Anti-Cheat"
+        }
+        $results += [PSCustomObject]@{
+            id = "svc_$svcName"
+            name = $dispName
+            command = $rawPath
+            location = "Service"
+            locationLabel = "Serviço (services.msc)"
+            enabled = ($_.StartMode -eq 'Auto')
+            sourceType = "service"
+            serviceName = $svcName
+            protectedReason = $isProtected
+        }
+    }
+}
+
+# 6. Third-Party Scheduled Tasks (Boot / Logon triggers)
+try {
+    Get-ScheduledTask -ErrorAction SilentlyContinue | Where-Object {
+        $_.TaskPath -notmatch '^\\Microsoft\\' -and $_.Triggers
+    } | ForEach-Object {
+        $hasBootOrLogon = $false
+        foreach ($trig in $_.Triggers) {
+            if ($trig.CimClass.CimClassName -match 'BootTrigger|LogonTrigger') {
+                $hasBootOrLogon = $true
+                break
+            }
+        }
+        if ($hasBootOrLogon) {
+            $act = $_.Actions | Select-Object -First 1
+            $execCmd = if ($act -and $act.Execute) { "$($act.Execute) $($act.Arguments)".Trim() } else { "$($_.TaskPath)$($_.TaskName)" }
+            $results += [PSCustomObject]@{
+                id = "task_$($_.TaskPath)$($_.TaskName)"
+                name = $_.TaskName
+                command = $execCmd
+                location = "Task"
+                locationLabel = "Tarefa Agendada"
+                enabled = ($_.State -ne 'Disabled')
+                sourceType = "task"
+                taskPath = $_.TaskPath
+            }
+        }
+    }
+} catch {}
+
 if ($results.Count -eq 0) {
     Write-Output "[]"
 } else {
@@ -1117,13 +1191,33 @@ async function toggleStartupApp(
   _event: any,
   appItem: {
     name: string
-    location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon"
+    location: "HKCU" | "HKLM" | "FolderUser" | "FolderCommon" | "Service" | "Task"
     enabled: boolean
-    sourceType: "registry" | "folder"
+    sourceType: "registry" | "folder" | "service" | "task"
     fileName?: string
+    serviceName?: string
+    taskPath?: string
   }
 ): Promise<{ success: boolean; error?: string }> {
   try {
+    if (appItem.sourceType === "service") {
+      const svcName = (appItem.serviceName || appItem.name).replace(/'/g, "''")
+      const targetMode = appItem.enabled ? "Automatic" : "Manual"
+      const script = `Set-Service -Name '${svcName}' -StartupType ${targetMode} -ErrorAction Stop`
+      const res = await executePowerShell(null, { script, name: "toggle-startup-service" })
+      return { success: res.success, error: res.error }
+    }
+
+    if (appItem.sourceType === "task") {
+      const tName = appItem.name.replace(/'/g, "''")
+      const tPath = (appItem.taskPath || "\\").replace(/'/g, "''")
+      const script = appItem.enabled
+        ? `Enable-ScheduledTask -TaskPath '${tPath}' -TaskName '${tName}' -ErrorAction Stop | Out-Null`
+        : `Disable-ScheduledTask -TaskPath '${tPath}' -TaskName '${tName}' -ErrorAction Stop | Out-Null`
+      const res = await executePowerShell(null, { script, name: "toggle-startup-task" })
+      return { success: res.success, error: res.error }
+    }
+
     const targetByte = appItem.enabled ? "0x02" : "0x03"
     let approvedKey = ""
     let itemName = appItem.name

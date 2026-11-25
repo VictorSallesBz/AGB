@@ -135,10 +135,10 @@ function Debloat() {
   const [startupSortField, setStartupSortField] = useState<StartupSortField>("name")
   const [startupSortOrder, setStartupSortOrder] = useState<SortOrder>("asc")
   const [colWidths, setColWidths] = useState({
-    name: 340,
-    location: 190,
-    command: 420,
-    status: 165,
+    name: 270,
+    location: 165,
+    command: 260,
+    status: 140,
   })
 
   const startResize = (col: keyof typeof colWidths, e: React.MouseEvent) => {
@@ -702,7 +702,7 @@ function Debloat() {
           </div>
 
           <div className="overflow-x-auto custom-scrollbar">
-            <Table className="mb-4 table-fixed w-full min-w-[900px]">
+            <Table className="mb-4 table-fixed w-full min-w-[820px]">
               <colgroup>
                 <col style={{ width: `${colWidths.name}px` }} />
                 <col style={{ width: `${colWidths.location}px` }} />

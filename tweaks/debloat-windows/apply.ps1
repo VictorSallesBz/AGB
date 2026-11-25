@@ -1,4 +1,4 @@
-﻿# AGB Debloat Script
+# AGB Debloat Script
 # This script allows the user to select which built-in apps and bloatware to remove
 # Made for AGB
 

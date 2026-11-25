@@ -1096,7 +1096,7 @@ Get-CimInstance Win32_Service -ErrorAction SilentlyContinue | Where-Object {
     if ($exeClean -match '^"([^"]+)"') {
         $exeClean = $matches[1]
     } else {
-        $exeClean = ($exeClean -split '\\\\s+')[0]
+        $exeClean = ($exeClean -split ' ')[0]
     }
 
     $isWindowsCore = $false
@@ -1107,7 +1107,7 @@ Get-CimInstance Win32_Service -ErrorAction SilentlyContinue | Where-Object {
             $exeClean -like "$winDir\\servicing\\*" -or
             $exeClean -like "$winDir\\WinSxS\\*" -or
             $exeClean -like "$winDir\\SystemApps\\*" -or
-            $exeClean -match 'svchost\\\\.exe$'
+            $exeClean -like "*\\svchost.exe"
         ) {
             $isWindowsCore = $true
         }

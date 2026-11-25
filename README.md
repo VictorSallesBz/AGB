@@ -23,7 +23,7 @@
 - [Guia de Todas as Abas do Aplicativo](#-guia-de-todas-as-abas-do-aplicativo)
   - [1. Painel (Home) e Perfis Rápidos](#1-painel-home-e-perfis-rápidos)
   - [2. Ajustes (Tweaks)](#2-ajustes-tweaks)
-  - [3. Aplicativos (Debloat e Inicialização)](#3-aplicativos-debloat-e-inicialização)
+  - [3. Aplicativos (Debloat, Inicialização e Serviços)](#3-aplicativos-debloat-inicialização-e-serviços)
   - [4. Utilitários (16 Ferramentas)](#4-utilitários-16-ferramentas)
   - [5. Limpeza do Sistema (9 Módulos)](#5-limpeza-do-sistema-9-módulos)
   - [6. Restauração e Backup](#6-restauração-e-backup)
@@ -109,15 +109,20 @@ Lista todos os **66 ajustes** disponíveis no AGB com controle total:
 
 ![Visualização transparente de scripts PowerShell](images/screenshots/04-ajustes-scripts.png)
 
-### 3. Aplicativos (Debloat e Inicialização)
+### 3. Aplicativos (Debloat, Inicialização e Serviços)
 
-Dividida em duas ferramentas essenciais:
-- **Aplicativos Instalados (Desinstalador / Debloat):** Lista aplicativos instalados e pacotes do Windows com opção de selecionar vários de uma vez e desinstalar em lote.
-- **Inicialização do Windows (Startup Apps):** Lista programas configurados para iniciar junto com o Windows, permitindo ativar ou desativar entradas com um clique para acelerar o boot.
+Dividida em três ferramentas essenciais:
+- **Aplicativos Instalados (Desinstalador):** Lista aplicativos instalados e pacotes do Windows com opção de selecionar vários de uma vez e desinstalar em lote.
+- **Inicialização do Windows (Startup Apps):** Lista apenas programas e tarefas agendadas que iniciam com o Windows, permitindo ativar ou desativar entradas sem abrir o Gerenciador de Tarefas.
+- **Serviços (services.msc):** Lista serviços de terceiros (filtrando serviços nativos do Windows) para alternar com 1 clique entre **Automático** e **Manual**, protegendo Anti-Cheats contra desativação acidental.
 
 ![Aplicativos Instalados](images/screenshots/05a-aplicativos-instalados.png)
 
 ![Aplicativos na Inicialização do Windows](images/screenshots/05b-aplicativos-inicializacao.png)
+
+![Serviços de Terceiros (services.msc)](images/screenshots/05c-servicos-inicializacao.png)
+
+![Janela Debloat — Despoluir o Windows](images/screenshots/05d-debloat-janela.png)
 
 ### 4. Utilitários (16 Ferramentas)
 

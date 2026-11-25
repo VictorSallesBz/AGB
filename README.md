@@ -1,6 +1,6 @@
-# ⚡ AGB — Advanced Gaming Booster
+# AGB — Advanced Gaming Booster
 
-> Otimizador gratuito e de código aberto para **Windows 10 e Windows 11**, feito para reduzir latência, limpar processos em segundo plano e melhorar a resposta do sistema em jogos e no dia a dia.
+Otimizador gratuito e de código aberto para **Windows 10 e Windows 11**, feito para reduzir latência, limpar processos em segundo plano e melhorar a resposta do sistema em jogos e no dia a dia.
 
 [![Versão](https://img.shields.io/badge/Versão-1.0.0-10b981?style=for-the-badge)](https://github.com/VictorSallesBz/AGB/releases/latest)
 [![Baixar Instalador](https://img.shields.io/badge/Download-Instalador_.EXE-2563eb?style=for-the-badge&logo=windows)](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe)
@@ -9,24 +9,29 @@
 [![Discord](https://img.shields.io/badge/Discord-Comunidade_AGB-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/b3HekDzKGS)
 [![Apoiar](https://img.shields.io/badge/Ko--fi-Apoiar_o_Projeto-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/victorsalles)
 
-> ### ⬇️ Baixar AGB v1.0.0 (Windows 10 e 11)
-> - 🚀 [**Baixar Instalador (`agb-1.0.0-setup.exe`) — Recomendado**](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe) *(abre direto com dois cliques e cria atalho na Área de Trabalho)*
-> - 📦 [**Baixar Versão Portátil (`AGB-1.0.0-win.zip`)**](https://github.com/VictorSallesBz/AGB/releases/latest/download/AGB-1.0.0-win.zip) *(sem instalação: basta extrair a pasta e abrir `agb.exe`)*
-> - 📋 [**Página de Releases**](https://github.com/VictorSallesBz/AGB/releases/latest)
+### Baixar AGB v1.0.0 (Windows 10 e 11)
+- [**Baixar Instalador (`agb-1.0.0-setup.exe`) — Recomendado**](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe) — abre direto com dois cliques e cria atalho na Área de Trabalho.
+- [**Baixar Versão Portátil (`AGB-1.0.0-win.zip`)**](https://github.com/VictorSallesBz/AGB/releases/latest/download/AGB-1.0.0-win.zip) — sem instalação: basta extrair a pasta e abrir `agb.exe`.
+- [**Página de Releases**](https://github.com/VictorSallesBz/AGB/releases/latest)
 
-> ### ❤️ Apoiar o desenvolvimento
-> O AGB é gratuito e mantido de forma independente. Se o programa ajudou a melhorar seu PC, você pode contribuir para manter o projeto ativo e atualizado:
-> - **PIX (Brasil):** QR Code e chave Copia e Cola dentro do aplicativo, clicando em **Apoiar o AGB** no canto inferior esquerdo (ou na aba **Configurações**).
-> - **Ko-fi (PayPal / Cartão / Internacional):** [**ko-fi.com/victorsalles**](https://ko-fi.com/victorsalles)
-> - **Bugs, sugestões e comunidade:** reporte problemas ou peça novos recursos em [**GitHub Issues**](https://github.com/VictorSallesBz/AGB/issues/new/choose) ou entre no [**Discord**](https://discord.gg/b3HekDzKGS).
+### Apoiar o desenvolvimento
+O AGB é gratuito e mantido de forma independente. Se o programa ajudou a melhorar seu PC, você pode contribuir para manter o projeto ativo e atualizado:
+
+<img src="resources/pix-qrcode.png" width="160" alt="QR Code PIX - Victor Salles" />
+
+- **PIX — Favorecido:** Victor Salles (Mercado Pago)
+- **Chave Aleatória:** `0dfceb96-ffaf-4301-bd4d-4f48cb4b3a11`
+- **PIX Copia e Cola:** `00020126580014br.gov.bcb.pix01360dfceb96-ffaf-4301-bd4d-4f48cb4b3a115204000053039865802BR5913Victor Salles6009Sao Paulo62230519daqr120926339986162630448D6`
+- **Ko-fi (PayPal / Cartão / Internacional):** [**ko-fi.com/victorsalles**](https://ko-fi.com/victorsalles)
+- **Bugs, sugestões e comunidade:** reporte problemas ou peça novos recursos em [**GitHub Issues**](https://github.com/VictorSallesBz/AGB/issues/new/choose) ou entre no [**Discord**](https://discord.gg/b3HekDzKGS).
 
 ---
 
-## 📋 Sumário
+## Sumário
 
-- [Sobre o AGB](#-sobre-o-agb)
-- [Instalação e Primeiros Passos](#-instalação-e-primeiros-passos)
-- [Guia das Abas do Aplicativo](#-guia-das-abas-do-aplicativo)
+- [Sobre o AGB](#sobre-o-agb)
+- [Instalação e Primeiros Passos](#instalação-e-primeiros-passos)
+- [Guia das Abas do Aplicativo](#guia-das-abas-do-aplicativo)
   - [1. Painel (Home) e Perfis Rápidos](#1-painel-home-e-perfis-rápidos)
   - [2. Ajustes (Tweaks)](#2-ajustes-tweaks)
   - [3. Aplicativos (Debloat, Inicialização e Serviços)](#3-aplicativos-debloat-inicialização-e-serviços)
@@ -35,12 +40,12 @@
   - [6. Restauração e Backup](#6-restauração-e-backup)
   - [7. Gerenciador e Benchmark de DNS](#7-gerenciador-e-benchmark-de-dns)
   - [8. Configurações, Apoio e Reporte de Bugs](#8-configurações-apoio-e-reporte-de-bugs)
-- [Índice dos 66 Ajustes](#-índice-dos-66-ajustes)
-- [Manual Completo dos 66 Ajustes](#-manual-completo-dos-66-ajustes)
+- [Índice dos 66 Ajustes](#índice-dos-66-ajustes)
+- [Manual Completo dos 66 Ajustes](#manual-completo-dos-66-ajustes)
 
 ---
 
-## 🛡️ Sobre o AGB
+## Sobre o AGB
 
 - **Código aberto e transparente:** todos os **66 ajustes** usam scripts PowerShell (`apply.ps1` e `unapply.ps1`) que você pode ler no repositório ou direto dentro do app pelo botão **Scripts**.
 - **Fácil de reverter:** quase todos os ajustes guardam a configuração original e podem ser desfeitos um por um na aba **Ajustes** ou todos juntos na aba **Restauração**.
@@ -48,13 +53,13 @@
 
 ---
 
-## 🚀 Instalação e Primeiros Passos
+## Instalação e Primeiros Passos
 
 ### Opção 1 — Instalador `.exe` (Recomendado)
 Você não precisa instalar Node.js nem mexer com comandos:
 1. Baixe [**agb-1.0.0-setup.exe**](https://github.com/VictorSallesBz/AGB/releases/latest/download/agb-1.0.0-setup.exe).
 2. Dê dois cliques no arquivo.
-   > **ℹ️ SmartScreen:** se o Windows mostrar a tela azul ("O Windows protegeu o computador"), clique em **"Mais informações"** e depois em **"Executar assim mesmo"**. Isso acontece porque o aplicativo ainda não usa certificado pago de assinatura digital.
+   > **SmartScreen:** se o Windows mostrar a tela azul ("O Windows protegeu o computador"), clique em **"Mais informações"** e depois em **"Executar assim mesmo"**. Isso acontece porque o aplicativo ainda não usa certificado pago de assinatura digital.
 3. Avance no instalador para criar os atalhos na Área de Trabalho e no Menu Iniciar.
 4. Ao abrir o **AGB**, aceite a permissão de **Administrador** (ela é necessária para alterar chaves de registro, planos de energia e serviços do Windows).
 
@@ -64,7 +69,7 @@ Você não precisa instalar Node.js nem mexer com comandos:
 3. Abra a pasta extraída e execute **`agb.exe`** como Administrador.
 
 <details>
-<summary>💻 <strong>Opção 3 — Para Desenvolvedores:</strong> rodar pelo código-fonte (Node.js 20+ e pnpm)</summary>
+<summary><strong>Opção 3 — Para Desenvolvedores:</strong> rodar pelo código-fonte (Node.js 20+ e pnpm)</summary>
 
 ```powershell
 git clone https://github.com/VictorSallesBz/AGB.git
@@ -85,7 +90,7 @@ pnpm run dev
 
 ---
 
-## 🧭 Guia das Abas do Aplicativo
+## Guia das Abas do Aplicativo
 
 ### 1. Painel (Home) e Perfis Rápidos
 
@@ -217,7 +222,7 @@ Permite testar e aplicar servidores DNS diretamente nos adaptadores de rede ativ
 
 ---
 
-## 📑 Índice dos 66 Ajustes
+## Índice dos 66 Ajustes
 
 Clique em qualquer item para ir direto até a explicação dele:
 
@@ -292,9 +297,9 @@ Clique em qualquer item para ir direto até a explicação dele:
 
 ---
 
-## 📖 Manual Completo dos 66 Ajustes
+## Manual Completo dos 66 Ajustes
 
-> 💡 Cada ajuste abaixo tem uma âncora com seu ID. Ao clicar em **Manual** dentro do AGB, esta página abre direto no ajuste correspondente.
+> Cada ajuste abaixo tem uma âncora com seu ID. Ao clicar em **Manual** dentro do AGB, esta página abre direto no ajuste correspondente.
 
 <a id="24-hour-clock"></a>
 #### Relógio em Formato 24 Horas (`24-hour-clock`)
@@ -304,19 +309,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Altera o formato de exibição do relógio do Windows para 24 horas (ex: 14:00 em vez de 2:00 PM).
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="agb-power-plan"></a>
 #### Plano de Energia Gamer AGB (`agb-power-plan`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Plano de energia exclusivo do AGB que desativa o Core Parking, mantém o boost máximo de CPU e desativa a economia do PCIe para estabilizar o 1% Low FPS em jogos.
 - **Como funciona:** Configura planos e parâmetros avançados de energia via `powercfg`.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -328,20 +333,20 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Alinha os ícones e o botão iniciar da barra de tarefas para o lado esquerdo da tela como no Windows 10.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="debloat-windows"></a>
 #### Despoluir o Windows (Debloat) (`debloat-windows`)
 
-**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Não · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Não · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · **Recomendado**
 
 - **O que faz:** Abre a lista de aplicativos integrados e bloatwares do Windows para você escolher quais deseja desinstalar.
 - **Como funciona:** Remove ou ajusta pacotes UWP / arquivos residuais.
 - **Uso:** Evite se você usa **PC Game Pass** ou jogos da Microsoft Store que dependem dos serviços Xbox.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -353,7 +358,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Adiciona informações técnicas completas e código legível à Tela Azul da Morte (BSOD).
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -365,7 +370,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Impede que aplicativos da Microsoft Store fiquem rodando em segundo plano consumindo CPU e RAM.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -380,19 +385,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Alguns aplicativos padrão podem ficar inacessíveis.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-copilot"></a>
 #### Desativar Microsoft Copilot (`disable-copilot`)
 
-**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · **Recomendado**
 
 - **O que faz:** Desativa o assistente Microsoft Copilot e remove seus atalhos e processos integrados ao Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -406,7 +411,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Quando usar: jogos sem anti-cheat rigoroso. Quando NÃO usar: CS2 na FACEIT/GamersClub ou Valorant (Vanguard), pois exigem HVCI ativo.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -420,44 +425,44 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Ajusta políticas do Microsoft Defender.
 - **Atenção:** Quando usar: apenas temporariamente em PCs fracos ou com outro antivírus. Quando NÃO usar: uso diário sem proteção alternativa.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-delivery-optimization"></a>
 #### Desativar Delivery Optimization (Updates P2P) (`disable-delivery-optimization`)
 
-**Categoria:** Rede, Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Rede, Desempenho, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Impede que o Windows use sua banda de upload para enviar atualizações a outros computadores na internet, reduzindo picos de ping.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Observação:** Se notar qualquer problema em VPNs ou rede de trabalho, basta reverter este ajuste.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-edge-pre-launching"></a>
 #### Desativar Pré-carregamento do Microsoft Edge (`disable-edge-pre-launching`)
 
-**Categoria:** Sistema, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Sistema, Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Impede que o Edge inicie automaticamente processos em segundo plano ao ligar o Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-fast-startup"></a>
 #### Desativar Inicialização Rápida (Fast Startup) (`disable-fast-startup`)
 
-**Categoria:** Sistema, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Sistema, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Garante reinicialização limpa dos drivers, GPU e placa de rede ao desligar o PC, evitando perda de desempenho acumulada.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -471,7 +476,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 - **Atenção:** Quando usar: CPUs Intel ou Ryzen comuns. Quando NÃO usar: Ryzen X3D (5800X3D/7800X3D/9800X3D), pois usam Game Bar para o 3D V-Cache.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -485,19 +490,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Atenção:** Quando usar: PCs de mesa (Desktops) para liberar GB do SSD. Quando NÃO usar: notebooks que dependem da hibernação ao fechar a tampa.
 - **Uso:** Bom para desktops para liberar espaço do arquivo `hiberfil.sys`. Em notebooks, evite se você usa o modo Hibernar.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-location-tracking"></a>
 #### Desativar Rastreamento de Localização (`disable-location-tracking`)
 
-**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Privacidade · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Bloqueia o acesso a dados de localização geográfica pelo Windows e aplicativos em segundo plano.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -509,7 +514,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Pula a imagem de capa da tela de bloqueio e vai direto para o campo de senha ou PIN.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -521,7 +526,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Remove o efeito de desfoque (blur) acrílico na tela de login/bloqueio para resposta instantânea.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -533,7 +538,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Desativa fatos engraçados, dicas, truques e sugestões na tela de bloqueio do Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -547,7 +552,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Quando usar: PCs com 16 GB ou mais de RAM. Quando NÃO usar: PCs com 8 GB de RAM ou menos.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -560,19 +565,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Detalhes:** Este ajuste substitui a curva de aceleração de ponteiro padrão do Windows por uma curva linear 1:1, proporcionando precisão absoluta em jogos.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-mpo"></a>
 #### Desativar Multiplane Overlay (MPO) (`disable-mpo`)
 
-**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming), GPU (Placa de Vídeo) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Desativa o MPO do DWM para corrigir piscadas, telas pretas e micro-travamentos em jogos com placas NVIDIA e AMD.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -586,7 +591,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Arquivos RDP podem ser usados em ataques; recomenda-se manter esta proteção ativada.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -599,7 +604,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Desativa a captura contínua de screenshots e análise de IA do recurso Recall no Windows 11.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -612,7 +617,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Recomendado para SSDs onde você deseja liberar 7 a 10 GB reservados pelo Windows.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -624,7 +629,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Impede que a barra de busca e o Menu Iniciar sugiram aplicativos da Microsoft Store.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -638,7 +643,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Altera o tipo de inicialização ou estado de Serviços do Windows.
 - **Atenção:** Quando usar: Windows instalado em SSD ou NVMe. Quando NÃO usar: sistema instalado em HD mecânico (HDD).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -650,19 +655,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Oculta a caixa ou ícone de pesquisa da barra de tarefas para liberar espaço e recursos visuais.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-telemetry"></a>
 #### Desativar Telemetria e Coleta de Dados (`disable-telemetry`)
 
-**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Privacidade, Desempenho · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Bloqueia o envio de relatórios de uso e dados de diagnóstico para os servidores da Microsoft.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows; Remove ou ajusta pacotes UWP / arquivos residuais; Ajusta políticas do Microsoft Defender.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -676,19 +681,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Atenção:** Quando usar: jogos dedicados (CS2, Valorant, Steam). Quando NÃO usar: se usar chat Xbox Party ou multiplayer da Microsoft Store.
 - **Observação:** Se notar qualquer problema em VPNs ou rede de trabalho, basta reverter este ajuste.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="disable-usb-selective-suspend"></a>
 #### Desativar Suspensão Seletiva de USB (`disable-usb-selective-suspend`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Impede que o Windows suspenda portas USB para economizar energia, evitando atraso ao despertar mouses, teclados e dongles sem fio.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Configura planos e parâmetros avançados de energia via `powercfg`.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -701,7 +706,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Observação:** Se notar qualquer problema em VPNs ou rede de trabalho, basta reverter este ajuste.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -716,7 +721,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Atenção:** Quando usar: jogadores só de Steam/Riot/Epic. Quando NÃO usar: quem usa PC Game Pass, Xbox App ou adaptador sem fio Xbox.
 - **Uso:** Evite se você usa **PC Game Pass** ou jogos da Microsoft Store que dependem dos serviços Xbox.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -728,19 +733,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Aplica o tema escuro nativo em todo o Windows e nos aplicativos compatíveis.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="enable-end-task-right-click"></a>
 #### Ativar 'Finalizar Tarefa' no Botão Direito (`enable-end-task-right-click`)
 
-**Categoria:** Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Geral · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Leve, Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Adiciona a opção rápida de finalizar processos travados diretamente pelo menu de contexto da barra de tarefas.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -752,7 +757,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Prioriza a alocação de threads da CPU e GPU para os jogos em execução, reduzindo processos concorrentes.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -765,7 +770,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Quando usar: GPUs RTX/RX modernas (necessário para DLSS Frame Gen). Quando NÃO usar: se notar engasgos no OBS ou em GPUs antigas (GTX/RX 500).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -777,7 +782,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Restaura o clássico e ultrarrápido Visualizador de Fotos do Windows 7 para abrir imagens instantaneamente.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -789,7 +794,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Remove o limite clássico de 260 caracteres em caminhos de pastas e arquivos no Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -801,7 +806,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Ativa automaticamente a tecla Num Lock ao ligar o computador e na tela de login.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -813,7 +818,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Aplica o modelo moderno de apresentação DirectX para reduzir latência e habilitar Auto HDR em jogos em modo janela.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -826,7 +831,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Detalhes:** Este ajuste removerá completamente o recurso de Widgets do Windows. Para restaurá-lo posteriormente se desejar, basta executar no terminal: `winget install 9MSSGKG348SP` ou pesquisar por 'Windows Web Experience Pack' na Microsoft Store.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -838,7 +843,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Reduz ao mínimo o atraso inicial e maximiza a velocidade de repetição de teclas no Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -850,7 +855,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Reduz o atraso de abertura de menus de contexto do Windows para 0ms, tornando o sistema instantâneo.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -864,7 +869,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Uso:** Apenas para placas **AMD Radeon**.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -877,19 +882,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Detalhes:** Este ajuste otimiza o Discord e limpa arquivos residuais: - Encerra instâncias em segundo plano antes de aplicar para evitar bloqueios; - Desativa a Aceleração de Hardware (libera 100% da GPU e VRAM para jogos); - Desativa o hook de Overlay no jogo (eliminando micro-stutters e quedas de FPS); - Desativa a inicialização automática com o Windows; - Ativa minimizar para a bandeja; - Limpa os caches Web/GPU, relatórios do Crashpad e logs de telemetria.
 - **Como funciona:** Remove ou ajusta pacotes UWP / arquivos residuais.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="optimize-input-lag"></a>
 #### Otimizar Input Lag (Mouse e Teclado) (`optimize-input-lag`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Ajusta a fila de buffer HID para 64 (seguro para mouses de 1000Hz–8000Hz) e desativa travas de acessibilidade para menor latência de entrada.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -902,20 +907,20 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Ajusta parâmetros da pilha de rede TCP/IP ou do adaptador de rede.
 - **Observação:** Se notar qualquer problema em VPNs ou rede de trabalho, basta reverter este ajuste.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="optimize-ntfs"></a>
 #### Otimizar Sistema de Arquivos NTFS (`optimize-ntfs`)
 
-**Categoria:** Desempenho, Sistema · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Sistema · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Recomendado, Agressivo · **Recomendado**
 
 - **O que faz:** Desativa a criação de nomes curtos 8.3 e carimbos de último acesso no NTFS para acelerar o acesso ao disco.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Configura atributos do sistema de arquivos NTFS via `fsutil`.
 - **Atenção:** Ideal para SSDs e NVMe: elimina gravações de último acesso e criação de nomes curtos 8.3.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -929,7 +934,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Aplica configurações de sistema diretamente via script PowerShell auditável.
 - **Uso:** Apenas para placas **NVIDIA GeForce**.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -941,7 +946,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Desativa animações pesadas e efeitos visuais supérfluos mantendo a renderização nítida de fontes.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -955,7 +960,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Atenção:** Prioriza conexões IPv4 sem desativar o IPv6, evitando quebra de serviços do Windows.
 - **Observação:** Se notar qualquer problema em VPNs ou rede de trabalho, basta reverter este ajuste.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -967,7 +972,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Configura o Explorador de Arquivos para abrir direto em 'Este Computador' e oculta a seção Galeria da barra lateral.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -981,7 +986,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 - **Atenção:** Quando usar: só se não usa Game Pass. Quando NÃO usar: CPUs AMD Ryzen X3D ou usuários de PC Game Pass / Xbox App.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -994,7 +999,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Detalhes:** Remove todos os aplicativos integrados ao Bing (Notícias, Clima, Finanças) e desativa a pesquisa na web dentro da barra de busca do Windows. Para restaurar os apps posteriormente, você pode reinstalá-los pela Microsoft Store.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1008,19 +1013,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Remove ou ajusta pacotes UWP / arquivos residuais.
 - **Atenção:** Quando usar: se não usa nuvem Microsoft. Quando NÃO usar: se Área de Trabalho/Documentos dependem de backup automático no OneDrive.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="revert-context-menu"></a>
 #### Restaurar Menu de Contexto Clássico do Windows 10 (`revert-context-menu`)
 
-**Categoria:** Geral, Aparência · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Geral, Aparência · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · **Recomendado**
 
 - **O que faz:** Restaura o menu de clique com botão direito clássico e completo no Windows 11, sem o botão 'Mostrar mais opções'.
 - **Como funciona:** Aplica configurações de sistema diretamente via script PowerShell auditável.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1032,7 +1037,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Oculta a seção de arquivos/apps recomendados e simplifica o layout do Menu Iniciar do Windows 11.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1045,19 +1050,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Detalhes:** Este ajuste alterará o perfil padrão do Windows Terminal para o PowerShell 7. Caso o PowerShell 7 ainda não esteja instalado no sistema, ele será baixado e instalado automaticamente.
 - **Como funciona:** Remove ou ajusta pacotes UWP / arquivos residuais.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="set-services-to-manual"></a>
 #### Configurar Serviços Desnecessários para Manual (`set-services-to-manual`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Agressivo · **Recomendado**
 
 - **O que faz:** Define dezenas de serviços não essenciais do Windows para início manual, liberando centenas de MB de memória RAM.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`); Altera o tipo de inicialização ou estado de Serviços do Windows.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1069,7 +1074,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Otimiza a alocação de tempo de processador do Windows para priorizar o aplicativo ou jogo ativo.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1081,7 +1086,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Exibe as extensões reais (.exe, .bat, .jpg, etc.) no Explorador de Arquivos para maior praticidade e segurança.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1093,7 +1098,7 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Exibe arquivos e pastas ocultos diretamente no Explorador de Arquivos.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1106,19 +1111,19 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **O que faz:** Exibe a contagem de segundos ao lado da hora no relógio da barra de tarefas do Windows.
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
 <a id="ultimate-performance-plan"></a>
 #### Plano de Energia Desempenho Máximo (`ultimate-performance-plan`)
 
-**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · ⭐ **Recomendado**
+**Categoria:** Desempenho, Jogos (Gaming) · **Risco:** Baixo · **Reversível:** Sim · **Reinício recomendado:** Não · **Perfis:** Opcional (Manual) · **Recomendado**
 
 - **O que faz:** Desbloqueia e ativa o plano de energia de Desempenho Máximo do Windows para eliminar economia agressiva de clock.
 - **Como funciona:** Configura planos e parâmetros avançados de energia via `powercfg`.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
@@ -1132,11 +1137,11 @@ Clique em qualquer item para ir direto até a explicação dele:
 - **Como funciona:** Modifica chaves e valores no Registro do Windows (`HKLM` / `HKCU`).
 - **Atenção:** Alguns softwares do fabricante podem não iniciar no boot.
 
-[↑ Voltar ao índice](#-índice-dos-66-ajustes)
+[Voltar ao índice](#índice-dos-66-ajustes)
 
 ---
 
-## 🤝 Suporte, Bugs e Sugestões
+## Suporte, Bugs e Sugestões
 
 - **Bugs e sugestões:** [**GitHub Issues**](https://github.com/VictorSallesBz/AGB/issues/new/choose)
 - **Comunidade:** [**Discord do AGB**](https://discord.gg/b3HekDzKGS)

@@ -16,6 +16,7 @@ import {
   TriangleAlert,
   Package,
   Rocket,
+  Cog,
 } from "lucide-react"
 import { toast } from "react-toastify"
 import { LargeInput } from "@/components/ui/input"
@@ -51,7 +52,7 @@ interface StartupApp {
   icon?: string
 }
 
-type SubTab = "installed" | "startup"
+type SubTab = "installed" | "startup" | "services"
 type SortField = "name" | "publisher" | "version" | "installDate" | "size"
 type StartupSortField = "name" | "locationLabel" | "command" | "status"
 type SortOrder = "asc" | "desc"
@@ -133,6 +134,29 @@ function Debloat() {
   const [togglingId, setTogglingId] = useState<string | null>(null)
   const [startupSortField, setStartupSortField] = useState<StartupSortField>("name")
   const [startupSortOrder, setStartupSortOrder] = useState<SortOrder>("asc")
+  const [colWidths, setColWidths] = useState({
+    name: 340,
+    location: 190,
+    command: 420,
+    status: 165,
+  })
+
+  const startResize = (col: keyof typeof colWidths, e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const startX = e.clientX
+    const startWidth = colWidths[col]
+    const onMouseMove = (moveEvent: MouseEvent) => {
+      const nextWidth = Math.max(120, Math.min(900, startWidth + (moveEvent.clientX - startX)))
+      setColWidths((prev) => ({ ...prev, [col]: nextWidth }))
+    }
+    const onMouseUp = () => {
+      window.removeEventListener("mousemove", onMouseMove)
+      window.removeEventListener("mouseup", onMouseUp)
+    }
+    window.addEventListener("mousemove", onMouseMove)
+    window.addEventListener("mouseup", onMouseUp)
+  }
 
   const loadApps = useCallback(async function () {
     setLoading(true)
@@ -237,9 +261,20 @@ function Debloat() {
     }
   }
 
+  const startupOnlyApps = useMemo(
+    () => startupApps.filter((a) => a.sourceType !== "service"),
+    [startupApps],
+  )
+
+  const serviceOnlyApps = useMemo(
+    () => startupApps.filter((a) => a.sourceType === "service"),
+    [startupApps],
+  )
+
   const filteredStartupApps = useMemo(() => {
+    const sourceList = activeTab === "services" ? serviceOnlyApps : startupOnlyApps
     const term = startupSearchTerm.toLowerCase().trim()
-    const filtered = startupApps.filter((app) => {
+    const filtered = sourceList.filter((app) => {
       if (!term) return true
       return (
         app.name.toLowerCase().includes(term) ||
@@ -263,7 +298,7 @@ function Debloat() {
       }
       return startupSortOrder === "asc" ? result : -result
     })
-  }, [startupApps, startupSearchTerm, startupSortField, startupSortOrder])
+  }, [activeTab, startupOnlyApps, serviceOnlyApps, startupSearchTerm, startupSortField, startupSortOrder])
 
   const handleToggleStartup = async (appItem: StartupApp) => {
     if (appItem.protectedReason) {
@@ -422,7 +457,28 @@ function Debloat() {
             </span>
           ) : (
             <span className="text-xs px-2 py-0.5 rounded-full bg-black/20 font-mono">
-              {startupApps.length}
+              {startupOnlyApps.length}
+            </span>
+          )}
+        </button>
+
+        <button
+          onClick={() => setActiveTab("services")}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer active:scale-95 ${
+            activeTab === "services"
+              ? "bg-agb-primary text-white shadow-md shadow-agb-primary/20"
+              : "text-agb-text-secondary hover:text-agb-text hover:bg-agb-accent/30"
+          }`}
+        >
+          <Cog className="w-4 h-4" />
+          <span>{language === "pt" ? "Serviços (services.msc)" : "Services (services.msc)"}</span>
+          {startupLoading && startupApps.length === 0 ? (
+            <span className="text-xs px-2 py-0.5 rounded-full bg-black/20 font-mono animate-pulse">
+              ...
+            </span>
+          ) : (
+            <span className="text-xs px-2 py-0.5 rounded-full bg-black/20 font-mono">
+              {serviceOnlyApps.length}
             </span>
           )}
         </button>
@@ -607,12 +663,18 @@ function Debloat() {
         </>
       )}
 
-      {activeTab === "startup" && (
+      {(activeTab === "startup" || activeTab === "services") && (
         <>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
             <div className="relative w-full md:w-96">
               <LargeInput
-                placeholder={t("searchStartupPlaceholder")}
+                placeholder={
+                  activeTab === "services"
+                    ? language === "pt"
+                      ? "Pesquisar serviços de terceiros..."
+                      : "Search third-party services..."
+                    : t("searchStartupPlaceholder")
+                }
                 className="w-full"
                 icon={Search}
                 value={startupSearchTerm}
@@ -621,6 +683,11 @@ function Debloat() {
             </div>
 
             <div className="flex items-center gap-2 self-end md:self-auto">
+              <span className="text-xs text-agb-text-muted hidden sm:inline">
+                {language === "pt"
+                  ? "Dica: arraste a borda das colunas para redimensionar"
+                  : "Tip: drag column edges to resize"}
+              </span>
               <Button
                 variant="secondary"
                 size="sm"
@@ -634,149 +701,185 @@ function Debloat() {
             </div>
           </div>
 
-          <Table className="mb-4">
-            <TableHeader>
-              <TableRow>
-                <TableHead
-                  onClick={() => handleStartupSort("name")}
-                  className="w-56 cursor-pointer select-none group"
-                >
-                  <div className="flex items-center gap-1.5">
-                    <span>{t("colStartupName")}</span>
-                    {renderStartupSortIndicator("name")}
-                  </div>
-                </TableHead>
-                <TableHead
-                  onClick={() => handleStartupSort("locationLabel")}
-                  className="w-48 cursor-pointer select-none group"
-                >
-                  <div className="flex items-center gap-1.5">
-                    <span>{t("colStartupLocation")}</span>
-                    {renderStartupSortIndicator("locationLabel")}
-                  </div>
-                </TableHead>
-                <TableHead
-                  onClick={() => handleStartupSort("command")}
-                  className="cursor-pointer select-none group"
-                >
-                  <div className="flex items-center gap-1.5">
-                    <span>{t("colStartupCommand")}</span>
-                    {renderStartupSortIndicator("command")}
-                  </div>
-                </TableHead>
-                <TableHead
-                  onClick={() => handleStartupSort("status")}
-                  className="w-36 text-right cursor-pointer select-none group"
-                >
-                  <div className="flex items-center justify-end gap-1.5">
-                    <span>{t("colStartupStatus")}</span>
-                    {renderStartupSortIndicator("status")}
-                  </div>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {startupLoading ? (
+          <div className="overflow-x-auto custom-scrollbar">
+            <Table className="mb-4 table-fixed w-full min-w-[900px]">
+              <colgroup>
+                <col style={{ width: `${colWidths.name}px` }} />
+                <col style={{ width: `${colWidths.location}px` }} />
+                <col style={{ width: `${colWidths.command}px` }} />
+                <col style={{ width: `${colWidths.status}px` }} />
+              </colgroup>
+              <TableHeader>
                 <TableRow>
-                  <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      <RotateCw className="w-6 h-6 animate-spin text-agb-primary" />
-                      <span>{t("loadingStartupApps")}</span>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ) : filteredStartupApps.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
-                    {t("noStartupAppsFound")}
-                  </TableCell>
-                </TableRow>
-              ) : (
-                filteredStartupApps.map((item) => (
-                  <TableRow key={item.id} className="hover:bg-agb-accent/30 transition-colors">
-                    <TableCell className="font-semibold text-agb-text">
-                      <div className="flex items-center gap-2.5">
-                        <AppIcon
-                          icon={item.icon}
-                          name={item.name}
-                          fallbackIcon={<Rocket className="w-3.5 h-3.5 text-agb-primary shrink-0" />}
-                        />
-                        <span className="truncate max-w-[200px]" title={item.name}>
-                          {item.name}
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <span className="text-xs px-2.5 py-1 rounded-md bg-agb-muted text-agb-muted-foreground font-mono">
-                        {item.locationLabel}
+                  <TableHead
+                    onClick={() => handleStartupSort("name")}
+                    className="relative cursor-pointer select-none group"
+                  >
+                    <div className="flex items-center gap-1.5 pr-2">
+                      <span>
+                        {activeTab === "services"
+                          ? language === "pt"
+                            ? "Serviço"
+                            : "Service"
+                          : t("colStartupName")}
                       </span>
-                    </TableCell>
-                    <TableCell
-                      className="text-xs text-agb-muted-foreground font-mono max-w-md truncate"
-                      title={item.command}
-                    >
-                      {item.command}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex items-center justify-end gap-3">
-                        {item.protectedReason ? (
-                          <span
-                            className="text-xs px-2 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 font-medium"
-                            title={
-                              language === "pt"
-                                ? `Protegido (${item.protectedReason})`
-                                : `Protected (${item.protectedReason})`
-                            }
-                          >
-                            {item.protectedReason}
-                          </span>
-                        ) : (
-                          <span
-                            className={`text-xs font-semibold ${item.enabled ? "text-emerald-400" : "text-agb-muted-foreground"}`}
-                          >
-                            {item.sourceType === "service"
-                              ? item.enabled
-                                ? language === "pt"
-                                  ? "Automático"
-                                  : "Automatic"
-                                : "Manual"
-                              : item.enabled
-                                ? t("enabled")
-                                : t("disabled")}
-                          </span>
-                        )}
-                        <button
-                          type="button"
-                          disabled={togglingId === item.id || !!item.protectedReason}
-                          onClick={() => handleToggleStartup(item)}
-                          title={
-                            item.protectedReason
-                              ? language === "pt"
-                                ? `Protegido (${item.protectedReason})`
-                                : `Protected (${item.protectedReason})`
-                              : undefined
-                          }
-                          className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                            item.enabled ? "bg-emerald-500" : "bg-agb-muted"
-                          } ${togglingId === item.id || item.protectedReason ? "opacity-50 cursor-not-allowed" : ""}`}
-                        >
-                          <span
-                            className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
-                              item.enabled ? "translate-x-4" : "translate-x-0"
-                            }`}
-                          />
-                        </button>
+                      {renderStartupSortIndicator("name")}
+                    </div>
+                    <div
+                      onMouseDown={(e) => startResize("name", e)}
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
+                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
+                    />
+                  </TableHead>
+                  <TableHead
+                    onClick={() => handleStartupSort("locationLabel")}
+                    className="relative cursor-pointer select-none group"
+                  >
+                    <div className="flex items-center gap-1.5 pr-2">
+                      <span>{t("colStartupLocation")}</span>
+                      {renderStartupSortIndicator("locationLabel")}
+                    </div>
+                    <div
+                      onMouseDown={(e) => startResize("location", e)}
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
+                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
+                    />
+                  </TableHead>
+                  <TableHead
+                    onClick={() => handleStartupSort("command")}
+                    className="relative cursor-pointer select-none group"
+                  >
+                    <div className="flex items-center gap-1.5 pr-2">
+                      <span>{t("colStartupCommand")}</span>
+                      {renderStartupSortIndicator("command")}
+                    </div>
+                    <div
+                      onMouseDown={(e) => startResize("command", e)}
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
+                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
+                    />
+                  </TableHead>
+                  <TableHead
+                    onClick={() => handleStartupSort("status")}
+                    className="text-right cursor-pointer select-none group"
+                  >
+                    <div className="flex items-center justify-end gap-1.5">
+                      <span>{t("colStartupStatus")}</span>
+                      {renderStartupSortIndicator("status")}
+                    </div>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {startupLoading ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
+                      <div className="flex flex-col items-center justify-center gap-3">
+                        <RotateCw className="w-6 h-6 animate-spin text-agb-primary" />
+                        <span>{t("loadingStartupApps")}</span>
                       </div>
                     </TableCell>
                   </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+                ) : filteredStartupApps.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
+                      {t("noStartupAppsFound")}
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredStartupApps.map((item) => (
+                    <TableRow key={item.id} className="hover:bg-agb-accent/30 transition-colors">
+                      <TableCell className="font-semibold text-agb-text">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <AppIcon
+                            icon={item.icon}
+                            name={item.name}
+                            fallbackIcon={<Rocket className="w-3.5 h-3.5 text-agb-primary shrink-0" />}
+                          />
+                          <span className="truncate" title={item.name}>
+                            {item.name}
+                          </span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <span className="text-xs px-2.5 py-1 rounded-md bg-agb-muted text-agb-muted-foreground font-mono whitespace-nowrap">
+                          {item.locationLabel}
+                        </span>
+                      </TableCell>
+                      <TableCell
+                        className="text-xs text-agb-muted-foreground font-mono truncate"
+                        title={item.command}
+                      >
+                        {item.command}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex items-center justify-end gap-3">
+                          {item.protectedReason ? (
+                            <span
+                              className="text-xs px-2 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 font-medium"
+                              title={
+                                language === "pt"
+                                  ? `Protegido (${item.protectedReason})`
+                                  : `Protected (${item.protectedReason})`
+                              }
+                            >
+                              {item.protectedReason}
+                            </span>
+                          ) : (
+                            <span
+                              className={`text-xs font-semibold ${item.enabled ? "text-emerald-400" : "text-agb-muted-foreground"}`}
+                            >
+                              {item.sourceType === "service"
+                                ? item.enabled
+                                  ? language === "pt"
+                                    ? "Automático"
+                                    : "Automatic"
+                                  : "Manual"
+                                : item.enabled
+                                  ? t("enabled")
+                                  : t("disabled")}
+                            </span>
+                          )}
+                          <button
+                            type="button"
+                            disabled={togglingId === item.id || !!item.protectedReason}
+                            onClick={() => handleToggleStartup(item)}
+                            title={
+                              item.protectedReason
+                                ? language === "pt"
+                                  ? `Protegido (${item.protectedReason})`
+                                  : `Protected (${item.protectedReason})`
+                                : undefined
+                            }
+                            className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                              item.enabled ? "bg-emerald-500" : "bg-agb-muted"
+                            } ${togglingId === item.id || item.protectedReason ? "opacity-50 cursor-not-allowed" : ""}`}
+                          >
+                            <span
+                              className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
+                                item.enabled ? "translate-x-4" : "translate-x-0"
+                              }`}
+                            />
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </div>
           <p className="text-sm text-agb-text-secondary mt-2 pb-8">
-            {language === "pt"
-              ? "Gerencie entradas do Registro, pastas Inicializar, Serviços de terceiros (services.msc: Automático ↔ Manual) e Tarefas Agendadas."
-              : "Manage Registry entries, Startup folders, third-party Services (Automatic ↔ Manual), and Scheduled Tasks."}
+            {activeTab === "services"
+              ? language === "pt"
+                ? "Gerencie serviços de terceiros (services.msc) alternando entre inicialização Automática e Manual."
+                : "Manage third-party Windows services by toggling between Automatic and Manual startup."
+              : language === "pt"
+                ? "Gerencie os aplicativos e tarefas agendadas que iniciam junto com o Windows."
+                : "Manage apps and scheduled tasks that start automatically with Windows."}
           </p>
         </>
       )}

@@ -262,12 +262,11 @@ function Home() {
 
   useEffect(() => {
     let isMounted = true
-    if (gameModeActive) {
-      // Telemetry paused during Game Mode to prioritize CPU/RAM for games
-      return
-    }
+    let inFlight = false
 
     const fetchMetrics = async () => {
+      if (inFlight) return
+      inFlight = true
       try {
         const data = await invoke({ channel: "get-system-metrics" })
         if (isMounted && data) {
@@ -275,10 +274,19 @@ function Home() {
         }
       } catch (err) {
         console.error("Failed to fetch metrics:", err)
+      } finally {
+        inFlight = false
       }
     }
 
+    // Fetch once immediately even if Game Booster is active so cards never stay stuck on "Loading..."
     fetchMetrics()
+    if (gameModeActive) {
+      return () => {
+        isMounted = false
+      }
+    }
+
     const interval = setInterval(fetchMetrics, 2500)
     return () => {
       isMounted = false

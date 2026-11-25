@@ -568,112 +568,131 @@ export async function checkWinget(): Promise<{ success: boolean; installed: bool
 
 async function getSystemMetrics() {
   try {
-    const [load, mem] = await Promise.all([
-      si.currentLoad(),
-      si.mem(),
-    ])
-
-    const cpuUsage = Math.round(load.currentLoad * 10) / 10
-    let cpuTemp: number | null = null
-
-    try {
-      const cpuTempData = await si.cpuTemperature()
-      if (cpuTempData && cpuTempData.main && cpuTempData.main > 0) {
-        cpuTemp = Math.round(cpuTempData.main)
-      }
-    } catch {
-      // ignore
-    }
-
-    if (cpuTemp === null) {
+    const cpuTempPromise = (async (): Promise<number | null> => {
       try {
-        const { stdout } = await execFilePromise("powershell.exe", [
-          "-NoProfile",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-Command",
-          "(Get-CimInstance -ClassName Win32_PerfFormattedData_Counters_ThermalZoneInformation -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty HighPrecisionTemperature)",
-        ])
+        const cpuTempData = await si.cpuTemperature()
+        if (cpuTempData && cpuTempData.main && cpuTempData.main > 0) {
+          return Math.round(cpuTempData.main)
+        }
+      } catch {
+        // ignore
+      }
+      try {
+        const { stdout } = await execFilePromise(
+          "powershell.exe",
+          [
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-Command",
+            "(Get-CimInstance -ClassName Win32_PerfFormattedData_Counters_ThermalZoneInformation -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty HighPrecisionTemperature)",
+          ],
+          { timeout: 3000 },
+        )
         if (stdout) {
           const raw = parseFloat(stdout.trim())
           if (!isNaN(raw) && raw > 2700) {
             const celsius = Math.round(raw / 10 - 273.15)
             if (celsius > 0 && celsius < 125) {
-              cpuTemp = celsius
+              return celsius
             }
           }
         }
       } catch {
         // ignore
       }
-    }
+      return null
+    })()
 
+    const gpuMetricsPromise = (async (): Promise<{ gpuUsage: number | null; gpuTemp: number | null }> => {
+      try {
+        const { stdout } = await execFilePromise(
+          "nvidia-smi",
+          ["--query-gpu=utilization.gpu,temperature.gpu", "--format=csv,noheader,nounits"],
+          { timeout: 2500 },
+        )
+        if (stdout) {
+          const parts = stdout.trim().split(",")
+          if (parts.length >= 2) {
+            const u = parseFloat(parts[0].trim())
+            const t = parseFloat(parts[1].trim())
+            return {
+              gpuUsage: !isNaN(u) ? Math.round(u) : null,
+              gpuTemp: !isNaN(t) ? Math.round(t) : null,
+            }
+          }
+        }
+      } catch {
+        try {
+          const graphics = await si.graphics()
+          if (graphics.controllers && graphics.controllers.length > 0) {
+            const controller =
+              graphics.controllers.find((c) => c.utilizationGpu !== undefined) ||
+              graphics.controllers[0]
+            return {
+              gpuUsage:
+                controller.utilizationGpu !== undefined && controller.utilizationGpu !== null
+                  ? Math.round(controller.utilizationGpu)
+                  : null,
+              gpuTemp:
+                controller.temperatureGpu !== undefined && controller.temperatureGpu !== null
+                  ? Math.round(controller.temperatureGpu)
+                  : null,
+            }
+          }
+        } catch {
+          // ignore
+        }
+      }
+      return { gpuUsage: null, gpuTemp: null }
+    })()
+
+    const diskMetricsPromise = (async () => {
+      const diskMetrics: Record<string, { activity: number; readSpeedSec: number; writeSpeedSec: number }> = {}
+      try {
+        const { stdout } = await execFilePromise(
+          "powershell.exe",
+          [
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-Command",
+            "Get-CimInstance -ClassName Win32_PerfFormattedData_PerfDisk_LogicalDisk | Where-Object { $_.Name -match '^[A-Z]:' } | Select-Object Name, PercentDiskTime, DiskReadBytesPerSec, DiskWriteBytesPerSec | ConvertTo-Json",
+          ],
+          { timeout: 3000 },
+        )
+        if (stdout) {
+          const parsed = JSON.parse(stdout.trim())
+          const list = Array.isArray(parsed) ? parsed : [parsed]
+          for (const item of list) {
+            if (item && item.Name) {
+              const letter = item.Name.toUpperCase()
+              diskMetrics[letter] = {
+                activity: Math.min(100, Math.max(0, Math.round(parseFloat(item.PercentDiskTime) || 0))),
+                readSpeedSec: parseFloat(item.DiskReadBytesPerSec) || 0,
+                writeSpeedSec: parseFloat(item.DiskWriteBytesPerSec) || 0,
+              }
+            }
+          }
+        }
+      } catch {
+        // ignore
+      }
+      return diskMetrics
+    })()
+
+    const [load, mem, cpuTemp, gpuMetrics, diskMetrics] = await Promise.all([
+      si.currentLoad(),
+      si.mem(),
+      cpuTempPromise,
+      gpuMetricsPromise,
+      diskMetricsPromise,
+    ])
+
+    const cpuUsage = Math.round(load.currentLoad * 10) / 10
     const memoryUsage = Math.round((mem.used / mem.total) * 1000) / 10
     const memoryUsedGB = Math.round((mem.used / 1024 / 1024 / 1024) * 10) / 10
-
-    let gpuUsage: number | null = null
-    let gpuTemp: number | null = null
-
-    try {
-      const { stdout } = await execFilePromise("nvidia-smi", [
-        "--query-gpu=utilization.gpu,temperature.gpu",
-        "--format=csv,noheader,nounits",
-      ])
-      if (stdout) {
-        const parts = stdout.trim().split(",")
-        if (parts.length >= 2) {
-          const u = parseFloat(parts[0].trim())
-          const t = parseFloat(parts[1].trim())
-          if (!isNaN(u)) gpuUsage = Math.round(u)
-          if (!isNaN(t)) gpuTemp = Math.round(t)
-        }
-      }
-    } catch {
-      try {
-        const graphics = await si.graphics()
-        if (graphics.controllers && graphics.controllers.length > 0) {
-          const controller =
-            graphics.controllers.find((c) => c.utilizationGpu !== undefined) ||
-            graphics.controllers[0]
-          if (controller.utilizationGpu !== undefined && controller.utilizationGpu !== null) {
-            gpuUsage = Math.round(controller.utilizationGpu)
-          }
-          if (controller.temperatureGpu !== undefined && controller.temperatureGpu !== null) {
-            gpuTemp = Math.round(controller.temperatureGpu)
-          }
-        }
-      } catch {
-        // ignore
-      }
-    }
-
-    const diskMetrics: Record<string, { activity: number; readSpeedSec: number; writeSpeedSec: number }> = {}
-
-    try {
-      const { stdout } = await execFilePromise("powershell.exe", [
-        "-NoProfile",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-Command",
-        "Get-CimInstance -ClassName Win32_PerfFormattedData_PerfDisk_LogicalDisk | Where-Object { $_.Name -match '^[A-Z]:' } | Select-Object Name, PercentDiskTime, DiskReadBytesPerSec, DiskWriteBytesPerSec | ConvertTo-Json",
-      ])
-      if (stdout) {
-        const parsed = JSON.parse(stdout.trim())
-        const list = Array.isArray(parsed) ? parsed : [parsed]
-        for (const item of list) {
-          if (item && item.Name) {
-            const letter = item.Name.toUpperCase()
-            diskMetrics[letter] = {
-              activity: Math.min(100, Math.max(0, Math.round(parseFloat(item.PercentDiskTime) || 0))),
-              readSpeedSec: parseFloat(item.DiskReadBytesPerSec) || 0,
-              writeSpeedSec: parseFloat(item.DiskWriteBytesPerSec) || 0,
-            }
-          }
-        }
-      }
-    } catch {
-      // ignore
-    }
+    const { gpuUsage, gpuTemp } = gpuMetrics
 
     return {
       cpu_usage: cpuUsage,
@@ -1077,12 +1096,19 @@ Get-CimInstance Win32_Service -ErrorAction SilentlyContinue | Where-Object {
     if ($exeClean -match '^"([^"]+)"') {
         $exeClean = $matches[1]
     } else {
-        $exeClean = ($exeClean -split '\s+')[0]
+        $exeClean = ($exeClean -split '\\\\s+')[0]
     }
 
     $isWindowsCore = $false
     if ($exeClean -and $winDir) {
-        if ($exeClean -like "$winDir\\System32\\*" -or $exeClean -like "$winDir\\SysWOW64\\*" -or $exeClean -like "$winDir\\servicing\\*" -or $exeClean -like "$winDir\\WinSxS\\*" -or $exeClean -match 'svchost\.exe$') {
+        if (
+            $exeClean -like "$winDir\\System32\\*" -or
+            $exeClean -like "$winDir\\SysWOW64\\*" -or
+            $exeClean -like "$winDir\\servicing\\*" -or
+            $exeClean -like "$winDir\\WinSxS\\*" -or
+            $exeClean -like "$winDir\\SystemApps\\*" -or
+            $exeClean -match 'svchost\\\\.exe$'
+        ) {
             $isWindowsCore = $true
         }
     }

@@ -134,29 +134,6 @@ function Debloat() {
   const [togglingId, setTogglingId] = useState<string | null>(null)
   const [startupSortField, setStartupSortField] = useState<StartupSortField>("name")
   const [startupSortOrder, setStartupSortOrder] = useState<SortOrder>("asc")
-  const [colWidths, setColWidths] = useState({
-    name: 270,
-    location: 165,
-    command: 260,
-    status: 140,
-  })
-
-  const startResize = (col: keyof typeof colWidths, e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    const startX = e.clientX
-    const startWidth = colWidths[col]
-    const onMouseMove = (moveEvent: MouseEvent) => {
-      const nextWidth = Math.max(120, Math.min(900, startWidth + (moveEvent.clientX - startX)))
-      setColWidths((prev) => ({ ...prev, [col]: nextWidth }))
-    }
-    const onMouseUp = () => {
-      window.removeEventListener("mousemove", onMouseMove)
-      window.removeEventListener("mouseup", onMouseUp)
-    }
-    window.addEventListener("mousemove", onMouseMove)
-    window.addEventListener("mouseup", onMouseUp)
-  }
 
   const loadApps = useCallback(async function () {
     setLoading(true)
@@ -683,11 +660,6 @@ function Debloat() {
             </div>
 
             <div className="flex items-center gap-2 self-end md:self-auto">
-              <span className="text-xs text-agb-text-muted hidden sm:inline">
-                {language === "pt"
-                  ? "Dica: arraste a borda das colunas para redimensionar"
-                  : "Tip: drag column edges to resize"}
-              </span>
               <Button
                 variant="secondary"
                 size="sm"
@@ -701,120 +673,95 @@ function Debloat() {
             </div>
           </div>
 
-          <div className="overflow-x-auto custom-scrollbar">
-            <Table className="mb-4 table-fixed w-full min-w-[820px]">
-              <colgroup>
-                <col style={{ width: `${colWidths.name}px` }} />
-                <col style={{ width: `${colWidths.location}px` }} />
-                <col style={{ width: `${colWidths.command}px` }} />
-                <col style={{ width: `${colWidths.status}px` }} />
-              </colgroup>
-              <TableHeader>
+          <Table className="mb-4">
+            <TableHeader>
+              <TableRow>
+                <TableHead
+                  onClick={() => handleStartupSort("name")}
+                  className="w-64 cursor-pointer select-none group"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span>
+                      {activeTab === "services"
+                        ? language === "pt"
+                          ? "Serviço"
+                          : "Service"
+                        : t("colStartupName")}
+                    </span>
+                    {renderStartupSortIndicator("name")}
+                  </div>
+                </TableHead>
+                <TableHead
+                  onClick={() => handleStartupSort("locationLabel")}
+                  className="w-44 cursor-pointer select-none group"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span>{t("colStartupLocation")}</span>
+                    {renderStartupSortIndicator("locationLabel")}
+                  </div>
+                </TableHead>
+                <TableHead
+                  onClick={() => handleStartupSort("command")}
+                  className="cursor-pointer select-none group"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span>{t("colStartupCommand")}</span>
+                    {renderStartupSortIndicator("command")}
+                  </div>
+                </TableHead>
+                <TableHead
+                  onClick={() => handleStartupSort("status")}
+                  className="w-36 text-right cursor-pointer select-none group"
+                >
+                  <div className="flex items-center justify-end gap-1.5">
+                    <span>{t("colStartupStatus")}</span>
+                    {renderStartupSortIndicator("status")}
+                  </div>
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {startupLoading ? (
                 <TableRow>
-                  <TableHead
-                    onClick={() => handleStartupSort("name")}
-                    className="relative cursor-pointer select-none group"
-                  >
-                    <div className="flex items-center gap-1.5 pr-2">
-                      <span>
-                        {activeTab === "services"
-                          ? language === "pt"
-                            ? "Serviço"
-                            : "Service"
-                          : t("colStartupName")}
-                      </span>
-                      {renderStartupSortIndicator("name")}
+                  <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
+                    <div className="flex flex-col items-center justify-center gap-3">
+                      <RotateCw className="w-6 h-6 animate-spin text-agb-primary" />
+                      <span>{t("loadingStartupApps")}</span>
                     </div>
-                    <div
-                      onMouseDown={(e) => startResize("name", e)}
-                      onClick={(e) => e.stopPropagation()}
-                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
-                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
-                    />
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleStartupSort("locationLabel")}
-                    className="relative cursor-pointer select-none group"
-                  >
-                    <div className="flex items-center gap-1.5 pr-2">
-                      <span>{t("colStartupLocation")}</span>
-                      {renderStartupSortIndicator("locationLabel")}
-                    </div>
-                    <div
-                      onMouseDown={(e) => startResize("location", e)}
-                      onClick={(e) => e.stopPropagation()}
-                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
-                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
-                    />
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleStartupSort("command")}
-                    className="relative cursor-pointer select-none group"
-                  >
-                    <div className="flex items-center gap-1.5 pr-2">
-                      <span>{t("colStartupCommand")}</span>
-                      {renderStartupSortIndicator("command")}
-                    </div>
-                    <div
-                      onMouseDown={(e) => startResize("command", e)}
-                      onClick={(e) => e.stopPropagation()}
-                      className="absolute right-0 top-1 bottom-1 w-1.5 cursor-col-resize hover:bg-agb-primary/60 rounded transition-colors"
-                      title={language === "pt" ? "Arraste para redimensionar" : "Drag to resize"}
-                    />
-                  </TableHead>
-                  <TableHead
-                    onClick={() => handleStartupSort("status")}
-                    className="text-right cursor-pointer select-none group"
-                  >
-                    <div className="flex items-center justify-end gap-1.5">
-                      <span>{t("colStartupStatus")}</span>
-                      {renderStartupSortIndicator("status")}
-                    </div>
-                  </TableHead>
+                  </TableCell>
                 </TableRow>
-              </TableHeader>
-              <TableBody>
-                {startupLoading ? (
-                  <TableRow>
-                    <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
-                      <div className="flex flex-col items-center justify-center gap-3">
-                        <RotateCw className="w-6 h-6 animate-spin text-agb-primary" />
-                        <span>{t("loadingStartupApps")}</span>
+              ) : filteredStartupApps.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
+                    {t("noStartupAppsFound")}
+                  </TableCell>
+                </TableRow>
+              ) : (
+                filteredStartupApps.map((item) => (
+                  <TableRow key={item.id} className="hover:bg-agb-accent/30 transition-colors">
+                    <TableCell className="font-semibold text-agb-text">
+                      <div className="flex items-center gap-2.5">
+                        <AppIcon
+                          icon={item.icon}
+                          name={item.name}
+                          fallbackIcon={<Rocket className="w-3.5 h-3.5 text-agb-primary shrink-0" />}
+                        />
+                        <span className="truncate max-w-[240px]" title={item.name}>
+                          {item.name}
+                        </span>
                       </div>
                     </TableCell>
-                  </TableRow>
-                ) : filteredStartupApps.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={4} className="text-center py-16 text-agb-text-secondary">
-                      {t("noStartupAppsFound")}
+                    <TableCell>
+                      <span className="text-xs px-2.5 py-1 rounded-md bg-agb-muted text-agb-muted-foreground font-mono whitespace-nowrap">
+                        {item.locationLabel}
+                      </span>
                     </TableCell>
-                  </TableRow>
-                ) : (
-                  filteredStartupApps.map((item) => (
-                    <TableRow key={item.id} className="hover:bg-agb-accent/30 transition-colors">
-                      <TableCell className="font-semibold text-agb-text">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <AppIcon
-                            icon={item.icon}
-                            name={item.name}
-                            fallbackIcon={<Rocket className="w-3.5 h-3.5 text-agb-primary shrink-0" />}
-                          />
-                          <span className="truncate" title={item.name}>
-                            {item.name}
-                          </span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <span className="text-xs px-2.5 py-1 rounded-md bg-agb-muted text-agb-muted-foreground font-mono whitespace-nowrap">
-                          {item.locationLabel}
-                        </span>
-                      </TableCell>
-                      <TableCell
-                        className="text-xs text-agb-muted-foreground font-mono truncate"
-                        title={item.command}
-                      >
-                        {item.command}
-                      </TableCell>
+                    <TableCell
+                      className="text-xs text-agb-muted-foreground font-mono max-w-xs md:max-w-md truncate"
+                      title={item.command}
+                    >
+                      {item.command}
+                    </TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-3">
                           {item.protectedReason ? (
@@ -871,7 +818,6 @@ function Debloat() {
                 )}
               </TableBody>
             </Table>
-          </div>
           <p className="text-sm text-agb-text-secondary mt-2 pb-8">
             {activeTab === "services"
               ? language === "pt"
